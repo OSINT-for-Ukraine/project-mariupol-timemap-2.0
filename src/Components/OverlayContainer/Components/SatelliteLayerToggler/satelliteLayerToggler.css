@@ -1,0 +1,13 @@
+.satellite-overlay-toggle-button {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  cursor: pointer;
+  color: var(--text-color);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.satellite-overlay-toggle-button-map {
+  color: black;
+}

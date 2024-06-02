@@ -1,0 +1,17 @@
+.made-with {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  opacity: 0.6;
+
+  border-radius: var(--radius-sm);
+
+  padding-block: var(--spacing-sm);
+  padding-inline: var(--spacing-md);
+
+  font-size: var(--font-sm);
+  letter-spacing: 0.05rem;
+}
+
+.made-with:hover {
+  opacity: 1;
+}

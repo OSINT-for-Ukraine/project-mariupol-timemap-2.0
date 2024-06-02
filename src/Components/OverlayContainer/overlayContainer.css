@@ -1,0 +1,12 @@
+.overlay-container {
+  z-index: var(--overlay-z-index);
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.container-row {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--spacing-md);
+}

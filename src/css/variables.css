@@ -1,0 +1,15 @@
+:root {
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  --radius-sm: 0.4rem;
+
+  --font-sm: 0.6rem;
+  --font-md: 1.15rem;
+
+  --text-color: white;
+  --background-color: black;
+
+  --overlay-z-index: 400;
+}
