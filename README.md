@@ -4,7 +4,7 @@ TimeMap is a tool for sourcing and mapping of potential international crimes com
 
 The original project is written using React Class based Components. The Timemap 2.0 refactors the original project using React Hooks.
 
-[How can I contribute?](#how-can-i-contribute) | [Setting up the project locally](#setting-up-the-project-locally) | [About OSINT for Ukraine](#about-osint-for-ukraine) | [Financial contributions](#financial-contributions) | [Code of conduct](#code-of-conduct)
+[How can I contribute?](#how-can-i-contribute) | [Setting up the project locally](#setting-up-the-project-locally) | [Code of conduct](#code-of-conduct) | [About OSINT for Ukraine](#about-osint-for-ukraine) 
 
 
 ## How can I contribute
@@ -31,3 +31,8 @@ OSINT FOR UKRAINE is an independent investigative (non-profit) foundation dedica
 Currently, OSINT FOR UKRAINE has three operational departments and supporting departments/groups (Public Affairs, General Secretariat and Operational Security), which amounts to more than 70 members (board, staff and volunteers).
 
 If you want to learn more details about our projects [visit our site](https://www.osintforukraine.com/).
+
+## Code of conduct
+
+This project and everyone participating in it is governed by the [OSINT for Ukraine Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+
