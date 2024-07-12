@@ -1,18 +1,15 @@
 import { MapContainer, TileLayer } from "react-leaflet";
+import { useMapLayerProvider } from "providers/useMapLayerProvider";
+import { mapBoxSatellite, mapBoxStreets, mapBoxToken } from "utils/const";
 import { OverlayContainer } from "Components/OverlayContainer";
-import { useMapLayerProvider } from "providers/useMapLayerProvider.jsx";
 
 const tileLayers = {
   streets: `https://api.mapbox.com/styles/v1/bellingcat-mapbox/${
-    import.meta.env.VITE_BELLINGCAT_MAPBOX_STREETS
-  }/tiles/256/{z}/{x}/{y}@2x?access_token=${
-    import.meta.env.VITE_BELLINGCAT_MAPBOX_TOKEN
-  }`,
+    mapBoxStreets
+  }/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxToken}`,
   satellite: `https://api.mapbox.com/styles/v1/bellingcat-mapbox/${
-    import.meta.env.VITE_BELLINGCAT_MAPBOX_SATELLITE
-  }/tiles/256/{z}/{x}/{y}@2x?access_token=${
-    import.meta.env.VITE_BELLINGCAT_MAPBOX_TOKEN
-  }`,
+    mapBoxSatellite
+  }/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxToken}`,
 };
 
 function App() {

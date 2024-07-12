@@ -1,11 +1,11 @@
-import { useState, createContext } from "react";
+import { useState, createContext, ReactNode } from "react";
 
 export const MapLayerContext = createContext({
   toggleSatelliteMode: () => {},
   isSatelliteMode: false,
 });
 
-export const MapLayerProvider = ({ children }) => {
+export const MapLayerProvider = ({ children }: { children: ReactNode }) => {
   const [isSatelliteMode, setSatelliteMode] = useState(false);
 
   const toggleSatelliteMode = () => {
