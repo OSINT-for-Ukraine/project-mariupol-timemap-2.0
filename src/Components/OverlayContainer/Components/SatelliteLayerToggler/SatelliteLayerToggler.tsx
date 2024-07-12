@@ -1,7 +1,7 @@
 import "./satelliteLayerToggler.css";
 import mapImg from "assets/satelliteoverlaytoggle/map.png";
 import satImg from "assets/satelliteoverlaytoggle/sat.png";
-import { useMapLayerProvider } from "providers/useMapLayerProvider.tsx";
+import { useMapLayerProvider } from "utils/hooks/useMapLayerProvider";
 
 export const SatelliteLayerToggle = () => {
   const { isSatelliteMode, toggleSatelliteMode } = useMapLayerProvider();

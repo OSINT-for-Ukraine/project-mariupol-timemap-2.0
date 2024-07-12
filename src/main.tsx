@@ -4,8 +4,8 @@ import "./css/normalizer.css";
 import "leaflet/dist/leaflet.css";
 import "./css/variables.css";
 import "./css/global.css";
-import App from "./App.js";
-import { MapLayerProvider } from "./providers/MapLayerProvider.tsx";
+import App from "./App.tsx";
+import { MapLayerProvider } from "providers/MapLayerProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

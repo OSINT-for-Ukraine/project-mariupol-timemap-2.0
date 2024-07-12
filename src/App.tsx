@@ -1,16 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
-import { useMapLayerProvider } from "providers/useMapLayerProvider";
-import { mapBoxSatellite, mapBoxStreets, mapBoxToken } from "utils/const";
+import { useMapLayerProvider } from "utils/hooks/useMapLayerProvider";
+import { tileLayers } from "utils/const";
 import { OverlayContainer } from "Components/OverlayContainer";
-
-const tileLayers = {
-  streets: `https://api.mapbox.com/styles/v1/bellingcat-mapbox/${
-    mapBoxStreets
-  }/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxToken}`,
-  satellite: `https://api.mapbox.com/styles/v1/bellingcat-mapbox/${
-    mapBoxSatellite
-  }/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxToken}`,
-};
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
