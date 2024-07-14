@@ -23,7 +23,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    // Paths for aliasing
     "paths": {
       "Components/*": ["./src/Components/*"],
       "assets/*": ["./src/assets/*"],
