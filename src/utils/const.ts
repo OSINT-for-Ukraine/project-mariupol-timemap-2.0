@@ -1,3 +1,5 @@
+import { LatLngBounds } from "leaflet";
+
 const mapBoxStreets = import.meta.env.VITE_BELLINGCAT_MAPBOX_STREETS;
 const mapBoxSatellite = import.meta.env.VITE_BELLINGCAT_MAPBOX_SATELLITE;
 const mapBoxToken = import.meta.env.VITE_BELLINGCAT_MAPBOX_TOKEN;
@@ -10,3 +12,14 @@ export const tileLayers = {
     mapBoxSatellite
   }/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxToken}`,
 };
+
+export const INITIAL_MAP_BOUNDARIES_INSTANCE = new LatLngBounds(
+  [23.444824218750004, 42.94033923363183],
+  [42.93457031250001, 53.2126121899416]
+);
+
+export const INITIAL_MAP_BOUNDARIES: [number, number, number, number] = [
+  23.444824218750004, 42.94033923363183, 42.93457031250001, 53.2126121899416,
+];
+
+export const INITIAL_MAP_ZOOM = 6;

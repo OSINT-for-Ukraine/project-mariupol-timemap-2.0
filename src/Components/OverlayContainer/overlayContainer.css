@@ -1,12 +1,19 @@
-.overlay-container {
-  z-index: var(--overlay-z-index);
+.position-fixed {
   position: fixed;
-  width: 100dvw;
-  height: 100dvh;
+  z-index: 401;
 }
 
-.container-row {
-  display: flex;
-  justify-content: space-between;
-  margin: var(--spacing-md);
+.satellite-toggle-position {
+  top: 0;
+  right: 8px;
+}
+
+.made-with-position {
+  top: 90px;
+  left: 0;
+}
+
+.ofu-logo-position {
+  top: 70px;
+  right: 8px;
 }

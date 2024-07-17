@@ -1,24 +1,22 @@
 import "./overlayContainer.css";
 import { Title } from "./Components/Title";
-import { Toolbar } from "./Components/Toolbar";
 import { SatelliteLayerToggle } from "./Components/SatelliteLayerToggler";
 import { MadeWith } from "./Components/MadeWith";
 import { OfuLogo } from "./Components/OfuLogo";
 
 export const OverlayContainer = () => {
   return (
-    <div className="overlay-container">
-      <div className="container-row">
-        <div className="flex-container">
-          <Title />
-          <Toolbar />
-        </div>
+    <>
+      <Title />
+      <div className="position-fixed satellite-toggle-position">
         <SatelliteLayerToggle />
       </div>
-      <div className="container-row">
+      <div className="position-fixed made-with-position">
         <MadeWith />
+      </div>
+      <div className="position-fixed ofu-logo-position">
         <OfuLogo />
       </div>
-    </div>
+    </>
   );
 };
