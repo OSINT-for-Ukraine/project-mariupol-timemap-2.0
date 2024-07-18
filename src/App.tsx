@@ -1,6 +1,11 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import { useMapLayerProvider } from "utils/hooks/useMapLayerProvider";
-import { INITIAL_MAP_BOUNDARIES_INSTANCE, tileLayers } from "utils/const";
+import {
+  INITIAL_MAP_BOUNDARIES_INSTANCE,
+  INITIAL_MAP_CENTER,
+  INITIAL_MAP_ZOOM,
+  tileLayers,
+} from "utils/const";
 import { OverlayItems } from "Components/OverlayItems";
 import { Space } from "Components/Space";
 
@@ -9,9 +14,9 @@ function App() {
 
   return (
     <MapContainer
-      center={[48.3326259, 33.19951447]}
+      center={INITIAL_MAP_CENTER}
       bounds={INITIAL_MAP_BOUNDARIES_INSTANCE}
-      zoom={6}
+      zoom={INITIAL_MAP_ZOOM}
       scrollWheelZoom
       style={{ height: "100dvh", width: "100dvw" }}
     >
