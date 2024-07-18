@@ -1,10 +1,10 @@
-import "./overlayContainer.css";
+import "./overlayItems.css";
 import { Title } from "./Components/Title";
 import { SatelliteLayerToggle } from "./Components/SatelliteLayerToggler";
 import { MadeWith } from "./Components/MadeWith";
 import { OfuLogo } from "./Components/OfuLogo";
 
-export const OverlayContainer = () => {
+export const OverlayItems = () => {
   return (
     <>
       <Title />

@@ -1,15 +1,12 @@
-import { useMapEvents } from "react-leaflet/hooks";
-import { Clusters } from "./Clusters";
+import "./space.css";
 import Supercluster from "supercluster";
 import { useState } from "react";
+import { LatLngTuple } from "leaflet";
+import { useMapEvents } from "react-leaflet/hooks";
+import { Clusters } from "./Clusters";
 import { convertedLocations, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
-import { LatLngTuple } from "leaflet";
-
-type MapBoundsAndZoomType = {
-  bbox: [number, number, number, number];
-  zoom: number;
-};
+import { MapBoundsAndZoomType } from "./types.ts";
 
 export const Space = () => {
   const [mapBoundsAndZoom, setMapBoundsAndZoom] =
@@ -51,8 +48,8 @@ export const Space = () => {
   const handleClusterClick = (clusterId: number, center: LatLngTuple) => {
     const zoomLevel = clustersRef.getClusterExpansionZoom(clusterId);
 
-    const reverseCoordinates = reverseTuple(center as [number, number]);
-    map.flyTo(reverseCoordinates, zoomLevel);
+    const coordinates = reverseTuple(center as [number, number]);
+    map.flyTo(coordinates, zoomLevel);
   };
 
   return (
@@ -60,7 +57,6 @@ export const Space = () => {
       clusters={
         clusters as Supercluster.ClusterFeature<Supercluster.AnyProps>[]
       }
-      zoom={mapBoundsAndZoom.zoom}
       onClusterClick={handleClusterClick}
     />
   );

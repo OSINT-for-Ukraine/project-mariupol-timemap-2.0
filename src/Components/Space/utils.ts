@@ -1,5 +1,5 @@
 import { events } from "../../events.ts";
-import { GeoJSONObj } from "./types.ts";
+import { GeoJSONObj, ReverseTupleType } from "./types.ts";
 
 export const getClusterDisplayValue = (
   pointCount: number,
@@ -33,8 +33,6 @@ export const convertedLocations = events.reduce(
   },
   []
 );
-
-type ReverseTupleType = (tuple: [number, number]) => [number, number];
 
 export const reverseTuple: ReverseTupleType = (tuple) => {
   return [tuple[1], tuple[0]];

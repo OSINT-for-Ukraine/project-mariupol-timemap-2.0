@@ -9,3 +9,10 @@ export type GeoJSONObj = {
     coordinates: [number, number];
   };
 };
+
+export type MapBoundsAndZoomType = {
+  bbox: [number, number, number, number];
+  zoom: number;
+};
+
+export type ReverseTupleType = (tuple: [number, number]) => [number, number];

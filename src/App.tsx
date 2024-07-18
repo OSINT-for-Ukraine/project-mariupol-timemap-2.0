@@ -1,7 +1,7 @@
-import { MapContainer, Pane, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { useMapLayerProvider } from "utils/hooks/useMapLayerProvider";
 import { INITIAL_MAP_BOUNDARIES_INSTANCE, tileLayers } from "utils/const";
-import { OverlayContainer } from "Components/OverlayContainer";
+import { OverlayItems } from "Components/OverlayItems";
 import { Space } from "Components/Space";
 
 function App() {
@@ -22,10 +22,8 @@ function App() {
             isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]
           }
         ></TileLayer>
-        <OverlayContainer />
-        <Pane name="space">
-          <Space />
-        </Pane>
+        <OverlayItems />
+        <Space />
       </MapContainer>
     </>
   );
