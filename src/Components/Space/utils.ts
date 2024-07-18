@@ -1,5 +1,5 @@
-import { events } from "../../events.ts";
 import { GeoJSONObj, ReverseTupleType } from "./types.ts";
+import { events } from "../../events.ts";
 
 export const getClusterDisplayValue = (
   pointCount: number,

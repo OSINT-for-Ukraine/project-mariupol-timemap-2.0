@@ -14,14 +14,14 @@ export const Cluster = ({ cluster, onClusterClick }: ClusterProps) => {
 
   const clusterIcon = getClusterIcon(
     point_count,
-    getClusterDisplayValue(point_count, 10, 25)
+    getClusterDisplayValue(point_count, 10, 25),
+    getClusterDisplayValue(point_count, 0.2, 0.9)
   );
 
   return (
     <Marker
       position={reverseTuple(cluster.geometry.coordinates as [number, number])}
       icon={clusterIcon}
-      opacity={getClusterDisplayValue(point_count, 0.2, 0.9)}
       eventHandlers={{
         click: () => {
           onClusterClick(
