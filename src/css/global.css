@@ -46,8 +46,3 @@ body {
 .display-flex {
   display: flex;
 }
-
-.red-dot-icon {
-  border-radius: 50%;
-  background-color: rgb(139, 0, 0);
-}
