@@ -3,7 +3,7 @@ import Supercluster from "supercluster";
 import { useState } from "react";
 import { LatLngTuple } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
-import { Clusters } from "./Clusters";
+import { Clusters } from "./Components/Clusters.tsx";
 import { convertedLocations, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
 import { MapBoundsAndZoomType } from "./types.ts";
@@ -47,7 +47,6 @@ export const Space = () => {
 
   const handleClusterClick = (clusterId: number, center: LatLngTuple) => {
     const zoomLevel = clustersRef.getClusterExpansionZoom(clusterId);
-
     const coordinates = reverseTuple(center as [number, number]);
     map.flyTo(coordinates, zoomLevel);
   };

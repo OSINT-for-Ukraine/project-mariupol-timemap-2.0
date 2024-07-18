@@ -1,8 +1,8 @@
-import { Cluster } from "./Components/Cluster.tsx";
-import { Event } from "./Components/Event.tsx";
+import { Cluster } from "./Cluster.tsx";
+import { Event } from "./Event.tsx";
 import Supercluster from "supercluster";
 import { LatLngTuple } from "leaflet";
-import { reverseTuple } from "./utils.ts";
+import { reverseTuple } from "../utils.ts";
 
 type ClustersPropsType = {
   clusters: Supercluster.ClusterFeature<Supercluster.AnyProps>[];
