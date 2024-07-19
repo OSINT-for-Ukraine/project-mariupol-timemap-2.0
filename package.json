@@ -16,7 +16,8 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-leaflet": "4.2.1",
-    "supercluster": "^8.0.1"
+    "supercluster": "^8.0.1",
+    "react-router-dom": "^6.25.0"
   },
   "devDependencies": {
     "@types/leaflet": "1.9.12",

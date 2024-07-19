@@ -1,0 +1,30 @@
+.timeline-handle {
+  width: 30px;
+  height: 30px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.timeline-handle__triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent #a0a0a0 transparent transparent;
+}
+
+.right {
+  margin-right: 5px;
+  rotate: 180deg;
+}
+
+.right:hover,
+.timeline-handle:hover {
+  background-color: #f57c0066;
+}
