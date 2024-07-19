@@ -1,8 +1,4 @@
 .name {
-  --minus-md: calc(-1 * var(--spacing-md));
-  margin-inline-start: var(--minus-md);
-  margin-block-start: var(--minus-md);
-
   border-radius: 0 0 var(--radius-sm);
   background-color: var(--background-color);
   color: var(--text-color);

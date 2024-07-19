@@ -10,6 +10,7 @@
 
   --text-color: white;
   --background-color: black;
+  --events-color: rgb(139, 0, 0);
 
   --overlay-z-index: 400;
 }

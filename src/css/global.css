@@ -37,3 +37,12 @@ body {
 .leaflet-control-zoom {
   display: none;
 }
+
+.leaflet-container {
+  width: 100%;
+  height: 100dvh;
+}
+
+.display-flex {
+  display: flex;
+}

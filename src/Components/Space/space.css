@@ -1,0 +1,51 @@
+.cluster-icon span {
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+  font-weight: bold;
+  filter: drop-shadow(black 0px 0px 5px);
+}
+
+.cluster-icon:hover span {
+  opacity: 1;
+}
+
+.hover-circle {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  & span {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+
+.hover-circle::before {
+  content: "";
+  display: block;
+
+  grid-row: 1;
+  grid-column: 1;
+
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+
+  border: 2px solid var(--events-color);
+  border-radius: 50%;
+  border-style: dashed;
+  visibility: hidden;
+}
+
+.hover-circle:hover::before {
+  visibility: visible;
+}
+
+.red-dot-icon {
+  border-radius: 50%;
+  background-color: var(--events-color);
+}
+
+.cluster-icon {
+  background: var(--background);
+  border-radius: 50%;
+}
