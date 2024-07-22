@@ -21,9 +21,8 @@ function App() {
       style={{ height: "100dvh", width: "100dvw" }}>
       <TileLayer
         attribution='© <a href="https://www.mapbox.com/about/maps/">Mapbox</a><strong> <br/> <a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
-        url={
-          isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]
-        }></TileLayer>
+        url={isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]}
+      ></TileLayer>
       <OverlayItems />
       <Space />
     </MapContainer>

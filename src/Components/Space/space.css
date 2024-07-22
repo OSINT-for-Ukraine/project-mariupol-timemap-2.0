@@ -30,7 +30,7 @@
   width: calc(100% + 4px);
   height: calc(100% + 4px);
 
-  border: 2px solid red;
+  border: 2px solid var(--events-color);
   border-radius: 50%;
   border-style: dashed;
   visibility: hidden;
@@ -42,7 +42,7 @@
 
 .red-dot-icon {
   border-radius: 50%;
-  background-color: rgb(139, 0, 0);
+  background-color: var(--events-color);
 }
 
 .cluster-icon {
