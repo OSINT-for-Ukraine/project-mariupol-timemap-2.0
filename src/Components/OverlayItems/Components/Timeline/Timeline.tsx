@@ -1,11 +1,11 @@
 import "./timeline.css";
 import { TimelineHandle } from "./TimelineHandles";
-import { ZoomButton } from "./ZoomButton";
+import { ZoomButton } from "./ZoomButtons";
 
 export const Timeline = () => {
   return (
     <div className="timeline-wrapper">
-      <TimelineHandle backwards={true}/>
+      <TimelineHandle backwards/>
       <div className="timeline-bottom">
         <ZoomButton />
       </div>

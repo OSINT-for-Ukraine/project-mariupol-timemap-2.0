@@ -10,21 +10,24 @@
   cursor: pointer;
 }
 
-.timeline-handle__triangle {
+.timeline-handle:hover {
+  background-color: var(--button-hover);
+}
+
+.timeline-handle:hover, .timeline-handle-triangle {
+  border-color: transparent var(--off-white) transparent transparent;
+}
+
+.timeline-handle-triangle {
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 7px 10px 7px 0;
-  border-color: transparent #a0a0a0 transparent transparent;
+  border-color: transparent var(--mid-white) transparent transparent;
 }
 
-.right {
+.timeline-handle.right {
   margin-right: 5px;
   rotate: 180deg;
-}
-
-.right:hover,
-.timeline-handle:hover {
-  background-color: #f57c0066;
 }

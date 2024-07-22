@@ -13,20 +13,18 @@
   text-anchor: middle;
   letter-spacing: 0.05em;
   transition: 0.2s ease;
-  color: #a0a0a0;
+  color: var(--mid-white);
   border-radius: 3px;
-  border: 0;
-  background-color: transparent;
   font-weight: 600;
   text-align: center;
 }
 
 .zoom-level-button:hover {
-  color: #efefef;
-  background-color: #f57c004d;
+  color:var(--off-white);
+  background-color: var(--button-hover);
 }
 
 .zoom-level-button.active {
-  color: #efefef;
-  background-color: #f57c00;
+  color: var(--off-white);
+  background-color: var(--button-active);
 }

@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import "./zoomButton.css";
+import "./zoomButtons.css";
+import { useState } from "react";
 
 const zoomLevels = [
-  { label: "Zoom to 1 month", months: 1 },
-  { label: "Zoom to 6 months", months: 6 },
-  { label: "Zoom to 1 year", months: 12 },
-  { label: "Zoom to 2 years", months: 24 },
+  { label: "Zoom to 1 month", months: 1, id: 1 },
+  { label: "Zoom to 6 months", months: 6, id: 2 },
+  { label: "Zoom to 1 year", months: 12, id: 3 },
+  { label: "Zoom to 2 years", months: 24, id: 4 },
 ];
 
 const currentDate: Date = new Date();
@@ -37,21 +38,27 @@ const getZoomDate = (currentDate: Date, months: number) => {
   return targetDate;
 };
 
-export const ZoomButton = () => {
+export const ZoomButtons = () => {
   const navigate = useNavigate();
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  const handleZoom = (months: number) => {
+  const handleZoom = (months: number, id: number) => {
     const zoomDate = getZoomDate(currentDate, months);
     const url = `/${formatDate(zoomDate)}__${formatDate(currentDate)}`;
     navigate(url);
+    setSelectedId(id);
   };
 
   return (
     <div className="zoom-controls">
       {zoomLevels.map((item, index) => (
-        <div key={index} className="zoom-level-button">
-          <div onClick={() => handleZoom(item.months)}>{item.label}</div>
-        </div>
+        <button
+          className={`zoom-level-button ${selectedId === item.id ? "active" : ""} `}
+          key={index}
+          role="link"
+          onClick={() => handleZoom(item.months, item.id)}>
+          {item.label}
+        </button>
       ))}
     </div>
   );

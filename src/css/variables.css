@@ -11,6 +11,12 @@
   --text-color: white;
   --background-color: black;
   --events-color: rgb(139, 0, 0);
+  --mid-white: #a0a0a0;
+  --off-white: #efefef;
+  --button-hover: #f57c004d;
+  --button-active: #f57c00;
+
 
   --overlay-z-index: 400;
+
 }
