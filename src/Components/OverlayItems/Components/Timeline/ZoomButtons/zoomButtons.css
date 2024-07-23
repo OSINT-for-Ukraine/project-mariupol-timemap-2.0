@@ -20,7 +20,7 @@
 }
 
 .zoom-level-button:hover {
-  color:var(--off-white);
+  color: var(--off-white);
   background-color: var(--button-hover);
 }
 
