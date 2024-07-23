@@ -3,6 +3,7 @@ import { Title } from "./Components/Title";
 import { SatelliteLayerToggle } from "./Components/SatelliteLayerToggler";
 import { MadeWith } from "./Components/MadeWith";
 import { OfuLogo } from "./Components/OfuLogo";
+import { Timeline } from "./Components/Timeline";
 
 export const OverlayItems = () => {
   return (
@@ -16,6 +17,9 @@ export const OverlayItems = () => {
       </div>
       <div className="position-fixed ofu-logo-position">
         <OfuLogo />
+      </div>
+      <div className="position-fixed timeline-position">
+        <Timeline />
       </div>
     </>
   );

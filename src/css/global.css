@@ -46,3 +46,14 @@ body {
 .display-flex {
   display: flex;
 }
+
+.leaflet-control-container > .leaflet-bottom:has(.leaflet-control-attribution) {
+  bottom: 48px;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+

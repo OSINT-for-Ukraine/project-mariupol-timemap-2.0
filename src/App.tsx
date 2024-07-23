@@ -18,8 +18,7 @@ function App() {
       bounds={INITIAL_MAP_BOUNDARIES_INSTANCE}
       zoom={INITIAL_MAP_ZOOM}
       scrollWheelZoom
-      style={{ height: "100dvh", width: "100dvw" }}
-    >
+      style={{ height: "100dvh", width: "100dvw" }}>
       <TileLayer
         attribution='© <a href="https://www.mapbox.com/about/maps/">Mapbox</a><strong> <br/> <a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
         url={isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]}

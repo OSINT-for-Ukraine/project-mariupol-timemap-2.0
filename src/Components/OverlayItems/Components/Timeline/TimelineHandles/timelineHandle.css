@@ -1,0 +1,33 @@
+.timeline-handle {
+  width: 30px;
+  height: 30px;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.timeline-handle:hover {
+  background-color: var(--button-hover);
+}
+
+.timeline-handle:hover, .timeline-handle-triangle {
+  border-color: transparent var(--off-white) transparent transparent;
+}
+
+.timeline-handle-triangle {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent var(--mid-white) transparent transparent;
+}
+
+.timeline-handle.right {
+  margin-right: 5px;
+  rotate: 180deg;
+}

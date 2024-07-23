@@ -1,0 +1,30 @@
+.zoom-controls {
+  display: flex;
+  padding: 6px 20px;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 9px;
+}
+
+.zoom-level-button {
+  padding: 6px 9px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-anchor: middle;
+  letter-spacing: 0.05em;
+  transition: 0.2s ease;
+  color: var(--mid-white);
+  border-radius: 3px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.zoom-level-button:hover {
+  color: var(--off-white);
+  background-color: var(--button-hover);
+}
+
+.zoom-level-button.active {
+  color: var(--off-white);
+  background-color: var(--button-active);
+}
