@@ -4,11 +4,15 @@ import { useState } from "react";
 import { LatLngTuple } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import { Clusters } from "./Components/Clusters.tsx";
-import { convertedLocations, reverseTuple } from "./utils.ts";
+import { convertEventsToGeoJsonObj, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
-import { MapBoundsAndZoomType } from "./types.ts";
+import { MapBoundsAndZoomType, Event } from "./types.ts";
 
-export const Space = () => {
+type SpacePropsType = {
+  events: Event[];
+};
+
+export const Space = ({ events }: SpacePropsType) => {
   const [mapBoundsAndZoom, setMapBoundsAndZoom] =
     useState<MapBoundsAndZoomType>({
       bbox: INITIAL_MAP_BOUNDARIES,
@@ -34,11 +38,13 @@ export const Space = () => {
     setMapBoundsAndZoom({ bbox, zoom });
   };
 
+  const geoJsonObj = convertEventsToGeoJsonObj(events);
+
   const clustersRef = new Supercluster({
     radius: 30,
     minZoom: 2,
     maxZoom: 16,
-  }).load(convertedLocations);
+  }).load(geoJsonObj);
 
   const clusters = clustersRef.getClusters(
     mapBoundsAndZoom.bbox,
