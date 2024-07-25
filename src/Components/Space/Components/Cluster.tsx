@@ -1,12 +1,12 @@
 import { Marker } from "react-leaflet";
 import Supercluster from "supercluster";
 import { getClusterDisplayValue, reverseTuple } from "../utils";
-import { LatLngTuple } from "leaflet";
 import { getClusterIcon } from "../icons/ClusterIcon";
+import { TupleOfTwoNumbers } from "../types";
 
 type ClusterProps = {
   cluster: Supercluster.ClusterFeature<Supercluster.AnyProps>;
-  onClusterClick: (clusterId: number, center: LatLngTuple) => void;
+  onClusterClick: (clusterId: number, center: TupleOfTwoNumbers) => void;
 };
 
 export const Cluster = ({ cluster, onClusterClick }: ClusterProps) => {
@@ -20,13 +20,13 @@ export const Cluster = ({ cluster, onClusterClick }: ClusterProps) => {
 
   return (
     <Marker
-      position={reverseTuple(cluster.geometry.coordinates as [number, number])}
+      position={reverseTuple(cluster.geometry.coordinates as TupleOfTwoNumbers)}
       icon={clusterIcon}
       eventHandlers={{
         click: () => {
           onClusterClick(
             cluster.id as number,
-            cluster.geometry.coordinates as LatLngTuple
+            cluster.geometry.coordinates as TupleOfTwoNumbers
           );
         },
       }}

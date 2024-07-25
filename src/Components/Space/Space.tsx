@@ -1,12 +1,16 @@
 import "./space.css";
 import Supercluster from "supercluster";
 import { useState } from "react";
-import { LatLngTuple } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import { Clusters } from "./Components/Clusters.tsx";
 import { convertEventsToGeoJsonObj, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
-import { MapBoundsAndZoomType, Event } from "./types.ts";
+import {
+  MapBoundsAndZoomType,
+  Event,
+  TupleOfFourNumbers,
+  TupleOfTwoNumbers,
+} from "./types.ts";
 
 type SpacePropsType = {
   events: Event[];
@@ -28,7 +32,7 @@ export const Space = ({ events }: SpacePropsType) => {
 
   const updateMapBoundsAndZoom = () => {
     const bounds = map.getBounds();
-    const bbox: [number, number, number, number] = [
+    const bbox: TupleOfFourNumbers = [
       bounds.getWest(),
       bounds.getSouth(),
       bounds.getEast(),
@@ -51,9 +55,9 @@ export const Space = ({ events }: SpacePropsType) => {
     mapBoundsAndZoom.zoom
   );
 
-  const handleClusterClick = (clusterId: number, center: LatLngTuple) => {
+  const handleClusterClick = (clusterId: number, center: TupleOfTwoNumbers) => {
     const zoomLevel = clustersRef.getClusterExpansionZoom(clusterId);
-    const coordinates = reverseTuple(center as [number, number]);
+    const coordinates = reverseTuple(center);
     map.flyTo(coordinates, zoomLevel);
   };
 
