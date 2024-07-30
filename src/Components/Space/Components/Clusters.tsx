@@ -1,12 +1,12 @@
 import { Cluster } from "./Cluster.tsx";
 import { Event } from "./Event.tsx";
 import Supercluster from "supercluster";
-import { LatLngTuple } from "leaflet";
 import { reverseTuple } from "../utils.ts";
+import { TupleOfTwoNumbers } from "../types.ts";
 
 type ClustersPropsType = {
   clusters: Supercluster.ClusterFeature<Supercluster.AnyProps>[];
-  onClusterClick: (clusterId: number, center: LatLngTuple) => void;
+  onClusterClick: (clusterId: number, center: TupleOfTwoNumbers) => void;
 };
 
 export const Clusters = ({ clusters, onClusterClick }: ClustersPropsType) => {
@@ -27,7 +27,7 @@ export const Clusters = ({ clusters, onClusterClick }: ClustersPropsType) => {
           return (
             <Event
               position={reverseTuple(
-                cluster.geometry.coordinates as [number, number]
+                cluster.geometry.coordinates as TupleOfTwoNumbers
               )}
               key={index}
             />

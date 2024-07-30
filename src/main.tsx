@@ -7,9 +7,14 @@ import "./css/global.css";
 import App from "./App.tsx";
 import { MapLayerProvider } from "providers/MapLayerProvider.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { loader } from "utils/loader.ts";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App /> },
+  {
+    path: "/",
+    element: <App />,
+    loader: loader,
+  },
   { path: "/:date", element: <App /> },
 ]);
 

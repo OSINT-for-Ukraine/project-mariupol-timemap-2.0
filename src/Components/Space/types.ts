@@ -1,3 +1,7 @@
+export type TupleOfTwoNumbers = [number, number];
+
+export type TupleOfFourNumbers = [number, number, number, number];
+
 export type GeoJSONObj = {
   type: "Feature";
   properties: {
@@ -6,13 +10,26 @@ export type GeoJSONObj = {
   };
   geometry: {
     type: "Point";
-    coordinates: [number, number];
+    coordinates: TupleOfTwoNumbers;
   };
 };
 
 export type MapBoundsAndZoomType = {
-  bbox: [number, number, number, number];
+  bbox: TupleOfFourNumbers;
   zoom: number;
 };
 
-export type ReverseTupleType = (tuple: [number, number]) => [number, number];
+export type ReverseTupleType = (tuple: TupleOfTwoNumbers) => TupleOfTwoNumbers;
+
+export type Event = {
+  id: string;
+  description: string;
+  date: Date;
+  location: string;
+  latitude: string;
+  longitude: string;
+  graphic: false;
+  associations: string[];
+  sources: string[];
+  time: string;
+};
