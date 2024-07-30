@@ -15,7 +15,8 @@ const router = createBrowserRouter([
     element: <App />,
     loader: loader,
   },
-  { path: "/:date", element: <App /> },
+  { path: "date/:date", element: <App /> },
+  { path: "date/:date/event/:eventId", element: <App /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

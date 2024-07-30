@@ -36,7 +36,8 @@
   visibility: hidden;
 }
 
-.hover-circle:hover::before {
+.hover-circle:hover::before,
+[selected].hover-circle::before {
   visibility: visible;
 }
 

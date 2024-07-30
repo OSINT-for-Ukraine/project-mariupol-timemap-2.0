@@ -53,5 +53,18 @@ body {
 
 .position-fixed {
   position: fixed;
+}
+
+.overlay-z-index {
   z-index: var(--overlay-z-index);
+}
+
+.modal-z-index {
+  z-index: var(--modal-z-index);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

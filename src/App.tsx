@@ -16,12 +16,14 @@ import {
   getIsoDate,
 } from "utils/date-utils";
 import { LoadingWheel } from "Components/shared/LoadingWheel";
-import { Event } from "Components/Space/types";
+import { Event } from "utils/types";
+import { Time } from "Components/Time";
+import { EventDetailsModal } from "Components/Space/Components/EventDetailsModal";
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
 
-  const { date } = useParams();
+  const { date, eventId } = useParams();
 
   const dateArr = date?.split("__");
 
@@ -44,6 +46,8 @@ function App() {
       ></TileLayer>
       <OverlayItems />
       {isLoading ? <LoadingWheel /> : <Space events={events as Event[]} />}
+      {eventId ? <EventDetailsModal /> : null}
+      <Time />
     </MapContainer>
   );
 }

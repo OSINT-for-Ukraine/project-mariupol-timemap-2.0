@@ -1,0 +1,15 @@
+.modal-position-right {
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+}
+
+.modal-position-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-position-left {
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+}
