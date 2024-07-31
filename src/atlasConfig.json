@@ -1,0 +1,9 @@
+{
+    "appId": "timemap-ivwlvlh",
+    "appUrl": "https://services.cloud.mongodb.com/groups/618d36c8f00e8748bd5c1d2f/apps/669a602f651cec44f7f26b31",
+    "baseUrl": "https://services.cloud.mongodb.com",
+    "clientApiBaseUrl": "https://westeurope.azure.services.cloud.mongodb.com",
+    "dataApiBaseUrl": "https://westeurope.azure.data.mongodb-api.com",
+    "dataExplorerLink": "https://cloud.mongodb.com/links/618d36c8f00e8748bd5c1d2f/explorer/OFU-temporary/database/collection/find",
+    "dataSourceName": "mongodb-atlas"
+}

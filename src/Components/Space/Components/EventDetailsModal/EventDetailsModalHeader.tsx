@@ -1,4 +1,3 @@
-import "./eventDetailsModal.css";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const EventDetailsModalHeader = () => {
@@ -7,7 +6,7 @@ export const EventDetailsModalHeader = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="event-details-buttons">
+    <div className="event-details-header">
       <button className="event-details-modal-button">
         Display military units
       </button>

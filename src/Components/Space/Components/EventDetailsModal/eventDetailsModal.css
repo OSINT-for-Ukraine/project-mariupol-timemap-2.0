@@ -4,6 +4,7 @@
 
 .event-details-modal {
   width: 600px;
+  min-height: calc(100vh - 365px);
   max-height: calc(100vh - 165px);
   overflow: scroll;
   font-size: 1rem;
@@ -29,7 +30,6 @@
   padding-block: var(--spacing-lg);
 
   & button {
-    padding: 5px 9px;
     border-radius: var(--radius-sm);
     transition: background 0.3s ease;
   }
@@ -52,9 +52,11 @@
   color: #a0a0a0;
 }
 
-.event-details-buttons {
+.event-details-header {
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
   padding: var(--spacing-md) var(--spacing-md);
   background-color: var(--background-color);
   color: var(--text-color);
@@ -64,7 +66,6 @@
 
 .event-details-modal-button {
   border: 1px solid var(--modal-background-color);
-  padding: 5px 9px;
   color: inherit;
   text-transform: uppercase;
   border-radius: var(--radius-sm);
@@ -74,4 +75,16 @@
     background-color: var(--modal-background-color);
     color: var(--background-color);
   }
+}
+
+.event-source {
+  margin-block-end: var(--spacing-lg);
+}
+
+.event-source-link {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: white;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d7e3ec;
+  width: 100%;
 }

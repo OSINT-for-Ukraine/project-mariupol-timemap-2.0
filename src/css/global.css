@@ -13,8 +13,8 @@ body {
 }
 
 .square-fixed-size {
-  width: 64px;
-  height: 64px;
+  width: var(--overlay-square-size);
+  height: var(--overlay-square-size);
 }
 
 .flex-container {
@@ -67,4 +67,14 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: var(--button-default-padding);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

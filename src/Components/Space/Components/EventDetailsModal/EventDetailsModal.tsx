@@ -15,17 +15,17 @@ export const EventDetailsModal = () => {
   return (
     <Modal position="right">
       <div className="event-details-modal">
+        <EventDetailsModalHeader />
         {isLoading ? (
           <LoadingWheel />
         ) : (
           <>
-            <EventDetailsModalHeader />
             <EventDetailsModalContent
               date={event?.date?.toDateString()}
               description={event?.description}
               location={event?.location || "--"}
             />
-            <EventDetailsModalSources sources={event?.sources} />
+            <EventDetailsModalSources sources={event?.sources} />{" "}
           </>
         )}
       </div>

@@ -4,11 +4,11 @@
 }
 
 .made-with-position {
-  top: calc(64px + var(--spacing-sm));
+  top: calc(var(--overlay-square-size) + var(--spacing-sm));
   left: 0;
 }
 
 .ofu-logo-position {
-  top: calc(64px + (var(--spacing-sm) * 2));
+  top: calc(var(--overlay-square-size) + (var(--spacing-sm) * 2));
   right: var(--spacing-sm);
 }

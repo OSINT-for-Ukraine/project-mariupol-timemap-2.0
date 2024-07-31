@@ -1,5 +1,3 @@
-import "./eventDetailsModal.css";
-
 type EventDetailsModalContentProps = {
   date: string;
   location: string;
