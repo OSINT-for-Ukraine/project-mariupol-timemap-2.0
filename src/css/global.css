@@ -49,6 +49,7 @@ body {
 
 .leaflet-control-container > .leaflet-bottom:has(.leaflet-control-attribution) {
   bottom: 48px;
+  z-index: var(--overlay-z-index);
 }
 
 .position-fixed {
