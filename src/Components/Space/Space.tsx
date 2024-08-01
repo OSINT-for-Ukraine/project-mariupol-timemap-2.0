@@ -7,10 +7,10 @@ import { convertEventsToGeoJsonObj, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
 import {
   MapBoundsAndZoomType,
-  Event,
   TupleOfFourNumbers,
   TupleOfTwoNumbers,
 } from "./types.ts";
+import { Event } from "utils/types.ts";
 
 type SpacePropsType = {
   events: Event[];

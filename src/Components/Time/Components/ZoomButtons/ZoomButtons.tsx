@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import "./zoomButtons.css";
+import { NavLink } from "react-router-dom";
 import {
   calculateDateFromMonthsAgo,
   currentDate,
@@ -20,7 +20,7 @@ export const ZoomButtons = () => {
         <NavLink
           className={`zoom-level-button`}
           key={index}
-          to={`/${calculateDateFromMonthsAgo(item.months)}__${getIsoDate(currentDate)}`}
+          to={`/date/${calculateDateFromMonthsAgo(item.months)}__${getIsoDate(currentDate)}`}
         >
           {item.label}
         </NavLink>

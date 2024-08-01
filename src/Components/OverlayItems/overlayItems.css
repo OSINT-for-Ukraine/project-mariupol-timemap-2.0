@@ -1,18 +1,14 @@
 .satellite-toggle-position {
-  top: 0;
-  right: 8px;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
 }
 
 .made-with-position {
-  top: 90px;
+  top: calc(var(--overlay-square-size) + var(--spacing-sm));
   left: 0;
 }
 
 .ofu-logo-position {
-  top: 70px;
-  right: 8px;
-}
-
-.timeline-position {
-  bottom: 0;
+  top: calc(var(--overlay-square-size) + (var(--spacing-sm) * 2));
+  right: var(--spacing-sm);
 }

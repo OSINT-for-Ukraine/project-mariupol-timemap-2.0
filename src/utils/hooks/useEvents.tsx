@@ -18,7 +18,10 @@ export const useEvents = ({ startDate, endDate }: UseEventsArgsType) => {
           $lt: new Date(intervalEnd),
         },
       },
-      { projection: { id: 1, latitude: 1, longitude: 1 }, limit: 500 }
+      {
+        projection: { id: 1, latitude: 1, longitude: 1 },
+        limit: 500,
+      }
     );
     return fetchEvents;
   };

@@ -7,6 +7,6 @@ import {
 
 export const loader = async () => {
   return redirect(
-    `/${calculateDateFromMonthsAgo(1)}__${getIsoDate(currentDate)}`
+    `/date/${calculateDateFromMonthsAgo(1)}__${getIsoDate(currentDate)}`
   );
 };

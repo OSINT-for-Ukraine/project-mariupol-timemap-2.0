@@ -30,6 +30,7 @@ export const Clusters = ({ clusters, onClusterClick }: ClustersPropsType) => {
                 cluster.geometry.coordinates as TupleOfTwoNumbers
               )}
               key={index}
+              id={cluster.properties.id}
             />
           );
         }

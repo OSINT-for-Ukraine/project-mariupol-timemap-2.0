@@ -1,4 +1,5 @@
-import { GeoJSONObj, ReverseTupleType, Event } from "./types.ts";
+import { GeoJSONObj, ReverseTupleType } from "./types.ts";
+import { Event } from "utils/types.ts";
 
 export const getClusterDisplayValue = (
   pointCount: number,
@@ -15,12 +16,12 @@ export const getClusterDisplayValue = (
 
 export const convertEventsToGeoJsonObj = (events: Event[]) => {
   return events.reduce((acc: GeoJSONObj[], event) => {
-    const { longitude, latitude } = event;
+    const { longitude, latitude, id } = event;
     const feature: GeoJSONObj = {
       type: "Feature",
       properties: {
         cluster: false,
-        id: event.id,
+        id: id,
       },
       geometry: {
         type: "Point",
