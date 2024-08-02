@@ -7,9 +7,13 @@ type ModalPosition = "right" | "center" | "left";
 type ModalProps = {
   children: ReactNode;
   position: ModalPosition;
+  open: boolean;
 };
 
-export const Modal = ({ children, position }: ModalProps) => {
+export const Modal = ({ children, position, open }: ModalProps) => {
+  if (!open) {
+    return null;
+  }
   return (
     <>
       {createPortal(

@@ -5,6 +5,5 @@
   text-transform: uppercase;
   cursor: pointer;
   font-size: var(--font-md);
-
-  padding-inline: var(--spacing-md);
+  padding: var(--spacing-md);
 }

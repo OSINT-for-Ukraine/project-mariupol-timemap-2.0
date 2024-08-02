@@ -12,6 +12,33 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+ul,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--button-default-padding);
+  border-radius: var(--radius-sm);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
 .square-fixed-size {
   width: var(--overlay-square-size);
   height: var(--overlay-square-size);
@@ -64,18 +91,6 @@ body {
   z-index: var(--modal-z-index);
 }
 
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--button-default-padding);
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+.margin-top {
+  margin-block-start: var(--spacing-md);
 }

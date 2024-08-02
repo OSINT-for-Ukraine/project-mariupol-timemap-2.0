@@ -1,7 +1,7 @@
 import { Marker, useMap } from "react-leaflet";
 import { getEventIcon } from "../icons/EventIcon";
 import { TupleOfTwoNumbers } from "../types";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 type EventPropsType = {
   position: TupleOfTwoNumbers;
@@ -10,7 +10,11 @@ type EventPropsType = {
 
 export const Event = ({ position, id }: EventPropsType) => {
   const navigate = useNavigate();
+
   const { date, eventId } = useParams();
+
+  const [searchParams] = useSearchParams();
+
   const map = useMap();
 
   const selectedEvent = eventId === id;
@@ -19,7 +23,10 @@ export const Event = ({ position, id }: EventPropsType) => {
     <Marker
       eventHandlers={{
         click: () => {
-          navigate(`/date/${date}/event/${id}`);
+          navigate({
+            pathname: `/date/${date}/event/${id}`,
+            search: `?${searchParams.toString()}`,
+          });
           map.flyTo(position);
         },
       }}

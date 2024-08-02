@@ -15,7 +15,7 @@ export const getClusterDisplayValue = (
 };
 
 export const convertEventsToGeoJsonObj = (events: Event[]) => {
-  return events.reduce((acc: GeoJSONObj[], event) => {
+  return events?.reduce((acc: GeoJSONObj[], event) => {
     const { longitude, latitude, id } = event;
     const feature: GeoJSONObj = {
       type: "Feature",
