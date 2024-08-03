@@ -19,9 +19,9 @@ export const useEvents = ({ startDate, endDate }: UseEventsArgsType) => {
         },
       },
       {
-        projection: { id: 1, latitude: 1, longitude: 1 },
+        projection: { id: 1, latitude: 1, longitude: 1, date: 1 },
         limit: 500,
-      }
+      },
     );
     return fetchEvents;
   };
@@ -35,7 +35,7 @@ export const useEvents = ({ startDate, endDate }: UseEventsArgsType) => {
     ([intervalBegin, intervalEnd]) => fetcher(intervalBegin, intervalEnd),
     {
       fallbackData: eventsJson,
-    }
+    },
   );
 
   return { events, isLoading, error };

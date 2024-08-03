@@ -18,3 +18,29 @@
   justify-content: space-between;
   width: 100vw;
 }
+
+.timeline {
+  display: flex;
+  width: 100vw;
+  background: var(--background-color);
+  color: var(--text-color);
+  overflow-x: scroll;
+}
+
+.timeline-item {
+  border: 1px solid white;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+  font-size: var(--font-sm);
+  position: relative;
+}
+
+.timeline-events {
+  position: absolute;
+  top: -100%;
+  background: var(--background-color);
+  border: 1px solid white;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-sm);
+  font-size: var(--font-sm);
+}
