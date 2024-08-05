@@ -18,7 +18,7 @@ import {
 import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { Event } from "utils/types";
 import { Time } from "Components/Time";
-import { EventDetailsModal } from "Components/Modals/EventDetailsModal";
+import { EventDetailsModal } from "Components/EventDetailsModal";
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();

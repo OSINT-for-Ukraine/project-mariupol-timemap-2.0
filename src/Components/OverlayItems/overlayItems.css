@@ -17,3 +17,8 @@
   top: var(--spacing-sm);
   left: calc(220px + var(--spacing-sm));
 }
+
+.square-fixed-size {
+  width: var(--overlay-square-size);
+  height: var(--overlay-square-size);
+}

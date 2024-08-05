@@ -47,6 +47,7 @@
 }
 
 .cluster-icon {
+  display: flex;
   background: var(--background);
   border-radius: 50%;
 }
