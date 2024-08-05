@@ -26,5 +26,5 @@
 
 .zoom-level-button.active {
   color: var(--off-white);
-  background-color: var(--button-active);
+  background-color: rgb(var(--button-active));
 }

@@ -9,7 +9,7 @@ import {
 import { OverlayItems } from "Components/OverlayItems";
 import { Space } from "Components/Space";
 import { useEvents } from "utils/hooks/useEvents";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import {
   calculateDateFromMonthsAgo,
   currentDate,
@@ -18,18 +18,21 @@ import {
 import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { Event } from "utils/types";
 import { Time } from "Components/Time";
-import { EventDetailsModal } from "Components/Space/Components/EventDetailsModal";
+import { EventDetailsModal } from "Components/Modals/EventDetailsModal";
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
 
   const { date, eventId } = useParams();
 
+  const [searchParams] = useSearchParams();
+
   const dateArr = date?.split("__");
 
   const { events, isLoading } = useEvents({
     startDate: dateArr?.[0] || calculateDateFromMonthsAgo(1),
     endDate: dateArr?.[1] || getIsoDate(currentDate),
+    filters: searchParams.getAll("filter"),
   });
 
   return (

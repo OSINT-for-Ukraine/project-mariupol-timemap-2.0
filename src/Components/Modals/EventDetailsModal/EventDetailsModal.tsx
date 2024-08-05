@@ -1,4 +1,5 @@
 import "./eventDetailsModal.css";
+import "../modals.css";
 import { Modal } from "Components/shared/Modal";
 import { useParams } from "react-router-dom";
 import { LoadingWheel } from "Components/shared/LoadingWheel";
@@ -13,8 +14,8 @@ export const EventDetailsModal = () => {
   const { event, isLoading } = useEvent({ id: eventId });
 
   return (
-    <Modal position="right">
-      <div className="event-details-modal">
+    <Modal open position="right">
+      <div className="modal-container event-details-modal">
         <EventDetailsModalHeader />
         {isLoading ? (
           <LoadingWheel />
