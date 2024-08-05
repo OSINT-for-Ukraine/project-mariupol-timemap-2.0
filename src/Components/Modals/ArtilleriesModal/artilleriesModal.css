@@ -1,0 +1,51 @@
+.artileries-list {
+  overflow: scroll;
+  height: 350px;
+}
+
+.artillery-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: start;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+
+  & p:nth-child(2) {
+    grid-column-start: 3;
+  }
+
+  div {
+    justify-self: center;
+
+    .selected {
+      border: 1px solid rgb(var(--button-active));
+      padding: 3px 7px;
+      border-radius: 20px;
+    }
+  }
+  .title {
+    font-weight: bold;
+  }
+  .range {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  &:hover {
+    background-color: var(--silver);
+  }
+}
+
+.artillery-icon {
+  background: url("/src/assets/icons/artillery-grey.png") no-repeat;
+  background-position: center;
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+}
+
+.range-circle {
+  background-color: transparent;
+  border: 1px solid var(--events-color);
+  border-radius: 50%;
+}
