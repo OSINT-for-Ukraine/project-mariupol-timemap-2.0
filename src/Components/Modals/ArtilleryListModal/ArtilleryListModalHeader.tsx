@@ -2,7 +2,7 @@ type ArtilleryModalHeaderProps = {
   onClick: () => void;
 };
 
-export const ArtilleriesModalHeader = ({
+export const ArtilleryListModalHeader = ({
   onClick,
 }: ArtilleryModalHeaderProps) => {
   return (

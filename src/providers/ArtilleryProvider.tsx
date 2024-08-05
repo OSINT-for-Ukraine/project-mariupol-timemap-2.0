@@ -3,7 +3,7 @@ import { Artillery } from "utils/types";
 
 type SelectedArtilleryState = Omit<Artillery, "title"> | null;
 
-export const ArtilleriesContext = createContext<{
+export const ArtilleryContext = createContext<{
   selectedArtillery: SelectedArtilleryState;
   handleArtillerySelect: (artillery: SelectedArtilleryState) => void;
 }>({
@@ -12,7 +12,7 @@ export const ArtilleriesContext = createContext<{
   handleArtillerySelect: (_artillery: SelectedArtilleryState) => {},
 });
 
-export const ArtilleriesProvider = ({ children }: { children: ReactNode }) => {
+export const ArtilleryProvider = ({ children }: { children: ReactNode }) => {
   const [selectedArtillery, setSelectedArtillery] =
     useState<SelectedArtilleryState>(null);
 
@@ -21,10 +21,10 @@ export const ArtilleriesProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ArtilleriesContext.Provider
+    <ArtilleryContext.Provider
       value={{ selectedArtillery, handleArtillerySelect }}
     >
       {children}
-    </ArtilleriesContext.Provider>
+    </ArtilleryContext.Provider>
   );
 };

@@ -1,4 +1,4 @@
-import { artilleryIcon } from "Components/Modals/ArtilleriesModal/artilleryIcon";
+import { artilleryIcon } from "Components/Modals/ArtilleryListModal/artilleryIcon";
 import { TupleOfTwoNumbers } from "Components/Space/types";
 import { LatLngTuple } from "leaflet";
 import { useState } from "react";

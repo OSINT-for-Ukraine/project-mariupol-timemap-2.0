@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ArtilleriesContext } from "providers/ArtilleryProvider";
+import { ArtilleryContext } from "providers/ArtilleryProvider";
 
-export const useArtilleriesProvider = () => {
+export const useArtilleryProvider = () => {
   const { selectedArtillery, handleArtillerySelect } =
-    useContext(ArtilleriesContext);
+    useContext(ArtilleryContext);
 
   return { selectedArtillery, handleArtillerySelect };
 };

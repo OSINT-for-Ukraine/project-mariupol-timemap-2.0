@@ -1,1 +1,0 @@
-export { ArtilleriesModal } from "./ArtilleriesModal";

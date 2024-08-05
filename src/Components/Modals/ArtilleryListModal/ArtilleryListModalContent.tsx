@@ -1,4 +1,4 @@
-import { useArtilleriesProvider } from "utils/hooks/useArtilleriesProvider";
+import { useArtilleryProvider } from "utils/hooks/useArtilleryProvider";
 import { Artillery } from "utils/types";
 
 const displayRangeInKm = (range: number) => {
@@ -6,7 +6,7 @@ const displayRangeInKm = (range: number) => {
   return rangeInKm + "km";
 };
 
-const artilleries: Artillery[] = [
+const artilleryList: Artillery[] = [
   { id: 1, title: "2A18 D-30", range: 153000 },
   { id: 2, title: "2S1 Gvozdika", range: 152000 },
   { id: 3, title: "2S3 Akatsiya", range: 19000 },
@@ -26,16 +26,16 @@ const artilleries: Artillery[] = [
   { id: 17, title: "S-300", range: 150000 },
 ];
 
-export const ArtilleriesModalContent = () => {
-  const { selectedArtillery, handleArtillerySelect } = useArtilleriesProvider();
+export const ArtilleryListModalContent = () => {
+  const { selectedArtillery, handleArtillerySelect } = useArtilleryProvider();
 
   return (
     <div>
       <p className="margin-top">
         Select an item from the list and click on the map to see the range.
       </p>
-      <ul className="artileries-list">
-        {artilleries.map((artillery) => (
+      <ul className="artillery-list">
+        {artilleryList.map((artillery) => (
           <li
             onClick={() =>
               handleArtillerySelect({

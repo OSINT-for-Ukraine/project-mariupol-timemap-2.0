@@ -1,13 +1,13 @@
 import { useState } from "react";
 import artilleryIconGrey from "assets/icons/artillery-grey.png";
 import artilleryIconWhite from "assets/icons/artillery-white.png";
-import { ArtilleriesModal } from "Components/Modals/ArtilleriesModal";
+import { ArtilleryListModal } from "Components/Modals/ArtilleryListModal";
 import { ArtilleryItem } from "./ArtilleryItem";
-import { useArtilleriesProvider } from "utils/hooks/useArtilleriesProvider";
+import { useArtilleryProvider } from "utils/hooks/useArtilleryProvider";
 import { Close } from "Components/Icons/Close";
 
 export const Artillery = () => {
-  const { selectedArtillery, handleArtillerySelect } = useArtilleriesProvider();
+  const { selectedArtillery, handleArtillerySelect } = useArtilleryProvider();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -38,7 +38,7 @@ export const Artillery = () => {
           <Close />
         </button>
       ) : null}
-      <ArtilleriesModal open={openModal} onClick={handleModalClick} />
+      <ArtilleryListModal open={openModal} onClick={handleModalClick} />
       {selectedArtillery?.range ? (
         <ArtilleryItem artilleryRange={selectedArtillery?.range} />
       ) : null}
