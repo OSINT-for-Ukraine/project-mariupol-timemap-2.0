@@ -25,7 +25,7 @@ export const Artillery = () => {
       >
         <img
           src={selectedArtillery ? artilleryIconWhite : artilleryIconGrey}
-          style={{ verticalAlign: "middle" }}
+          className="toolbar-icon"
         />
       </button>
       {selectedArtillery ? (

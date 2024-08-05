@@ -13,8 +13,8 @@ export const FullScreen = () => {
     <button
       onClick={handleFullScreenClick}
       className="toolbar-button fullscreen-button"
-      aria-label="Open filters modal"
-      title="Open filters modal"
+      aria-label="fullscreen icon"
+      title="open fullscreen"
     >
       <FullScreenIcon />
     </button>
