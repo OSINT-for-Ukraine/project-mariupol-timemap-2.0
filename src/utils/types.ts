@@ -19,3 +19,9 @@ export type Event = {
   filters: EventFilter[];
   sources: EventSource[];
 };
+
+export type Artillery = {
+  id: number;
+  title: string;
+  range: number;
+};

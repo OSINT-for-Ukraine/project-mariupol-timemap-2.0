@@ -3,6 +3,18 @@
   padding: var(--spacing-sm);
 }
 
+html:fullscreen .fullscreen-button {
+  background-color: rgba(var(--button-active), 0.8);
+}
+
+.fullscreen-icon {
+  fill: #a0a0a0;
+}
+
+html:fullscreen .fullscreen-icon {
+  fill: white;
+}
+
 .toolbar-button.active {
   background-color: rgba(var(--button-active), 0.8);
 }
