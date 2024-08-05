@@ -5,7 +5,6 @@ import { ArtilleryItem } from "./Components/ArtilleryItem";
 import { useArtilleryProvider } from "utils/hooks/useArtilleryProvider";
 import { CloseIcon } from "Components/shared/CloseIcon/CloseIcon";
 import { ArtilleryListModal } from "./Components/ArtilleryListModal";
-import { ArtilleryProvider } from "providers/ArtilleryProvider";
 
 export const Artillery = () => {
   const { selectedArtillery, handleArtillerySelect } = useArtilleryProvider();
@@ -17,7 +16,7 @@ export const Artillery = () => {
   };
 
   return (
-    <ArtilleryProvider>
+    <>
       <button
         onClick={handleModalClick}
         className={`toolbar-button ${selectedArtillery ? "active" : ""}`}
@@ -43,6 +42,6 @@ export const Artillery = () => {
       {selectedArtillery?.range ? (
         <ArtilleryItem artilleryRange={selectedArtillery?.range} />
       ) : null}
-    </ArtilleryProvider>
+    </>
   );
 };
