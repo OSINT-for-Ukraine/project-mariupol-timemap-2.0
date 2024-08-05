@@ -1,26 +1,28 @@
 import { useState, createContext, ReactNode } from "react";
+import { Artillery } from "utils/types";
+
+type SelectedArtilleryState = Omit<Artillery, "title"> | null;
 
 export const ArtilleriesContext = createContext<{
-  selectedArtilleryId: number | null;
-  handleArtillerySelect: (id: number | null) => void;
+  selectedArtillery: SelectedArtilleryState;
+  handleArtillerySelect: (artillery: SelectedArtilleryState) => void;
 }>({
-  selectedArtilleryId: null,
+  selectedArtillery: null,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  handleArtillerySelect: (_id: number | null) => {},
+  handleArtillerySelect: (_artillery: SelectedArtilleryState) => {},
 });
 
 export const ArtilleriesProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedArtilleryId, setSelectedArtilleryId] = useState<number | null>(
-    null
-  );
+  const [selectedArtillery, setSelectedArtillery] =
+    useState<SelectedArtilleryState>(null);
 
-  const handleArtillerySelect = (id: number | null) => {
-    setSelectedArtilleryId(id);
+  const handleArtillerySelect = (artillery: SelectedArtilleryState) => {
+    setSelectedArtillery(artillery);
   };
 
   return (
     <ArtilleriesContext.Provider
-      value={{ selectedArtilleryId, handleArtillerySelect }}
+      value={{ selectedArtillery, handleArtillerySelect }}
     >
       {children}
     </ArtilleriesContext.Provider>

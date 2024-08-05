@@ -1,15 +1,13 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import artilleryIconGrey from "assets/icons/artillery-grey.png";
 import artilleryIconWhite from "assets/icons/artillery-white.png";
 import { ArtilleriesModal } from "Components/Modals/ArtilleriesModal";
 import { ArtilleryItem } from "./ArtilleryItem";
 import { useArtilleriesProvider } from "utils/hooks/useArtilleriesProvider";
-import { artilleries } from "utils/artilleries";
 import { Close } from "Components/Icons/Close";
 
 export const Artillery = () => {
-  const { selectedArtilleryId, handleArtillerySelect } =
-    useArtilleriesProvider();
+  const { selectedArtillery, handleArtillerySelect } = useArtilleriesProvider();
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -17,25 +15,20 @@ export const Artillery = () => {
     setOpenModal((prevState) => !prevState);
   };
 
-  const artilleryRange = useMemo(() => {
-    return artilleries.find((artillery) => artillery.id === selectedArtilleryId)
-      ?.range;
-  }, [selectedArtilleryId]);
-
   return (
     <>
       <button
         onClick={handleModalClick}
-        className={`toolbar-button ${selectedArtilleryId ? "active" : ""}`}
+        className={`toolbar-button ${selectedArtillery ? "active" : ""}`}
         aria-label="Open artillery"
         title="Open artillery list"
       >
         <img
-          src={selectedArtilleryId ? artilleryIconWhite : artilleryIconGrey}
+          src={selectedArtillery ? artilleryIconWhite : artilleryIconGrey}
           style={{ verticalAlign: "middle" }}
         />
       </button>
-      {selectedArtilleryId ? (
+      {selectedArtillery ? (
         <button
           className="toolbar-button"
           onClick={() => handleArtillerySelect(null)}
@@ -46,8 +39,8 @@ export const Artillery = () => {
         </button>
       ) : null}
       <ArtilleriesModal open={openModal} onClick={handleModalClick} />
-      {artilleryRange ? (
-        <ArtilleryItem artilleryRange={artilleryRange} />
+      {selectedArtillery?.range ? (
+        <ArtilleryItem artilleryRange={selectedArtillery?.range} />
       ) : null}
     </>
   );
