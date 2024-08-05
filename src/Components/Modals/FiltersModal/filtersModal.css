@@ -27,4 +27,16 @@
 .fiter-category-list {
   overflow: scroll;
   height: 300px;
+
+  li {
+    padding: var(--spacing-sm) var(--spacing-sm);
+    &:hover {
+      background-color: var(--silver);
+    }
+  }
+
+  label {
+    display: block;
+    width: 100%;
+  }
 }

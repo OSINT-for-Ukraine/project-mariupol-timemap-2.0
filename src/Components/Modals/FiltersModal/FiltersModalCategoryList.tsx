@@ -27,14 +27,17 @@ export const FiltersModalCategoryList = ({
     <ul className="fiter-category-list">
       {filtersJson[category].map((filter) => {
         return (
-          <li key={filter.id} className="margin-top">
-            <input
-              onClick={(e) => handleFilterClick(e)}
-              value={filter.id}
-              defaultChecked={filterSearchParams.includes(filter.id)}
-              type="checkbox"
-            ></input>
-            <label> {filter.title} </label>
+          <li key={filter.id}>
+            <label htmlFor={filter.id}>
+              <input
+                onClick={(e) => handleFilterClick(e)}
+                value={filter.id}
+                defaultChecked={filterSearchParams.includes(filter.id)}
+                type="checkbox"
+                id={filter.id}
+              />{" "}
+              {filter.title}
+            </label>
           </li>
         );
       })}
