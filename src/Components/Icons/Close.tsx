@@ -6,7 +6,7 @@ export const Close = () => {
       viewBox="0 -960 960 960"
       width="22px"
       fill="#FFFFFF"
-      style={{ verticalAlign: "middle" }}
+      className="toolbar-icon"
     >
       <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
     </svg>
