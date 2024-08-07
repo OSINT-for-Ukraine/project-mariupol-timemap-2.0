@@ -1,3 +1,8 @@
+.cluster-icon {
+  background: var(--background);
+  border-radius: 50%;
+}
+
 .cluster-icon span {
   opacity: 0;
   transition: opacity 0.3s;
@@ -44,10 +49,4 @@
 .red-dot-icon {
   border-radius: 50%;
   background-color: var(--events-color);
-}
-
-.cluster-icon {
-  display: flex;
-  background: var(--background);
-  border-radius: 50%;
 }

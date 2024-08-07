@@ -49,7 +49,7 @@ function App() {
       ></TileLayer>
       <OverlayItems />
       {isLoading ? <LoadingWheel /> : <Space events={events as Event[]} />}
-      {eventId ? <EventDetailsModal /> : null}
+      <EventDetailsModal open={!!eventId} />
       <Time />
     </MapContainer>
   );

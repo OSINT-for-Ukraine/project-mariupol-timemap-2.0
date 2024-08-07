@@ -20,19 +20,22 @@ export const Artillery = () => {
       <button
         onClick={handleModalClick}
         className={`toolbar-button ${selectedArtillery ? "active" : ""}`}
-        aria-label="Open artillery"
+        aria-label="Open artillery list"
         title="Open artillery list"
       >
         <img
           src={selectedArtillery ? artilleryIconWhite : artilleryIconGrey}
+          alt="artillery-icon"
           className="toolbar-icon"
+          width="24px"
+          height="24px"
         />
       </button>
       {selectedArtillery ? (
         <button
           className="toolbar-button"
           onClick={() => handleArtillerySelect(null)}
-          aria-label="Clear all filters"
+          aria-label="Close artillery list"
           title="Exit artillery range view"
         >
           <CloseIcon />

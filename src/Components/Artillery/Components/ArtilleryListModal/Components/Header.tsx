@@ -1,10 +1,10 @@
 import { ModalHeader } from "Components/shared/ModalHeader/ModalHeader";
 
-type ArtilleryModalHeaderProps = {
+type HeaderProps = {
   onClick: () => void;
 };
 
-export const Header = ({ onClick }: ArtilleryModalHeaderProps) => {
+export const Header = ({ onClick }: HeaderProps) => {
   return (
     <ModalHeader onClick={onClick}>
       <p className="modal-title">Artillery</p>

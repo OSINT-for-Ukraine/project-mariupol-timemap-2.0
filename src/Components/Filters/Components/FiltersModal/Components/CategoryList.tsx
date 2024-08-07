@@ -2,11 +2,11 @@ import { useSearchParams } from "react-router-dom";
 import { MouseEvent } from "react";
 import { filters as filtersJson } from "utils/filters.ts";
 
-type FiltersModalCategoryListProps = {
+type CategoryListProps = {
   category: "type_of_area_affected" | "weapon_system";
 };
 
-export const CategoryList = ({ category }: FiltersModalCategoryListProps) => {
+export const CategoryList = ({ category }: CategoryListProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filterSearchParams = searchParams.getAll("filter");

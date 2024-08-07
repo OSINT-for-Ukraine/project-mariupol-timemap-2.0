@@ -1,18 +1,13 @@
 import useSWR from "swr";
 import { useCollection } from "./useCollection";
-import { events as eventsJson } from "utils/events.ts";
 
-type UseEventsArgsType = {
+type UseEventsArgs = {
   startDate: string;
   endDate: string;
   filters: string[];
 };
 
-export const useEvents = ({
-  startDate,
-  endDate,
-  filters,
-}: UseEventsArgsType) => {
+export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
   const eventsCollection = useCollection();
 
   const fetcher = async (
@@ -54,7 +49,7 @@ export const useEvents = ({
     ([intervalBegin, intervalEnd, filtersArr]) =>
       fetcher(intervalBegin, intervalEnd, filtersArr),
     {
-      fallbackData: eventsJson,
+      fallbackData: [],
     }
   );
 

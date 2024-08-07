@@ -23,8 +23,8 @@ export const Filters = () => {
       <button
         onClick={handleModalClick}
         className={`toolbar-button ${isActive ? "active" : ""}`}
-        aria-label="Open filters modal"
-        title="Open filters modal"
+        aria-label="Open filters list"
+        title="Open filters list"
       >
         <FilterListIcon color={isActive ? "white" : "#a0a0a0"} />
       </button>

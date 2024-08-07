@@ -1,10 +1,10 @@
 import { ModalHeader } from "Components/shared/ModalHeader/ModalHeader";
 
-type FiltersModalHeaderProps = {
+type HeaderProps = {
   onClick: () => void;
 };
 
-export const Header = ({ onClick }: FiltersModalHeaderProps) => {
+export const Header = ({ onClick }: HeaderProps) => {
   return (
     <ModalHeader onClick={onClick}>
       <p className="modal-title">Filters</p>

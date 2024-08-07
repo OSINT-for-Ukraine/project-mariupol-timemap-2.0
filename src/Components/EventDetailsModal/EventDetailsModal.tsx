@@ -7,13 +7,17 @@ import { Header } from "./Components/Header";
 import { Content } from "./Components/Content";
 import { Sources } from "./Components/Sources";
 
-export const EventDetailsModal = () => {
+type EventDetailsModalProps = {
+  open: boolean;
+};
+
+export const EventDetailsModal = ({ open }: EventDetailsModalProps) => {
   const { eventId } = useParams();
 
   const { event, isLoading } = useEvent({ id: eventId });
 
   return (
-    <Modal open position="right">
+    <Modal open={open} position="right">
       <div className="modal-container event-details-modal">
         <Header />
         {isLoading ? (
@@ -25,7 +29,7 @@ export const EventDetailsModal = () => {
               description={event?.description}
               location={event?.location || "--"}
             />
-            <Sources sources={event?.sources} />{" "}
+            <Sources sources={event?.sources} />
           </>
         )}
       </div>

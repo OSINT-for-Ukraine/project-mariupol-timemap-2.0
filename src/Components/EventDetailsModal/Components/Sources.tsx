@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Event } from "utils/types";
 import { Source } from "./Source";
 
-type EventDetailsModalSources = {
+type SourcesProps = {
   sources: Event["sources"];
 };
 
-export const Sources = ({ sources }: EventDetailsModalSources) => {
+export const Sources = ({ sources }: SourcesProps) => {
   const [showSources, setShowSources] = useState(true);
 
   return (
