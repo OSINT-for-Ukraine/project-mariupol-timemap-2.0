@@ -4,6 +4,6 @@
   color: var(--text-color);
   text-transform: uppercase;
   cursor: pointer;
-  font-size: var(--font-md);
+  font-size: var(--font-lg);
   padding: var(--spacing-md);
 }

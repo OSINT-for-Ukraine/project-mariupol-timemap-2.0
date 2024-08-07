@@ -8,7 +8,13 @@ export const OfuLogo = () => {
       target="_blank"
       aria-label="osintforukraine.com"
     >
-      <img className="logo square-fixed-size" src={ofulogo} alt="OFU logo" />
+      <img
+        className="logo square-fixed-size"
+        src={ofulogo}
+        alt="OFU logo"
+        width="64px"
+        height="64px"
+      />
     </a>
   );
 };

@@ -8,7 +8,6 @@
 
 .zoom-level-button {
   padding: var(--button-default-padding);
-  font-size: 0.875rem;
   cursor: pointer;
   text-anchor: middle;
   letter-spacing: 0.05rem;
