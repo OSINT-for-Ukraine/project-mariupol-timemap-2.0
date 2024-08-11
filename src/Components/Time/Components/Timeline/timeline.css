@@ -1,5 +1,6 @@
 .timeline-position {
   bottom: 0;
+  font-size: var(--font-md);
 }
 
 .timeline-wrapper {
