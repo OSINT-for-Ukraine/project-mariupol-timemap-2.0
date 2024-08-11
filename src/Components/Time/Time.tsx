@@ -1,4 +1,3 @@
-import "./timeline.css";
 import { Timeline } from "./Components/Timeline";
 import { DateRange } from "./Components/DateRange";
 import { Event } from "utils/types";
