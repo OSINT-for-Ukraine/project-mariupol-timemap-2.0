@@ -5,10 +5,20 @@
 
 .made-with-position {
   top: calc(var(--overlay-square-size) + var(--spacing-sm));
-  left: 0;
+  left: var(--spacing-sm);
 }
 
 .ofu-logo-position {
   top: calc(var(--overlay-square-size) + (var(--spacing-sm) * 2));
   right: var(--spacing-sm);
+}
+
+.toolbar-position {
+  top: var(--spacing-sm);
+  left: calc(220px + var(--spacing-sm));
+}
+
+.square-fixed-size {
+  width: var(--overlay-square-size);
+  height: var(--overlay-square-size);
 }

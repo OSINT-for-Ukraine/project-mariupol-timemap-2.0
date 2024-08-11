@@ -1,11 +1,11 @@
 import useSWR from "swr";
 import { useCollection } from "./useCollection";
 
-type UseEventArgsType = {
+type UseEventArgs = {
   id?: string;
 };
 
-export const useEvent = ({ id }: UseEventArgsType) => {
+export const useEvent = ({ id }: UseEventArgs) => {
   const eventsCollection = useCollection();
 
   const fetcher = async (eventId: string) => {

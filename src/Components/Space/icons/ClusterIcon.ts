@@ -7,7 +7,7 @@ export const getClusterIcon = (
 ) => {
   return new L.DivIcon({
     iconSize: new L.Point(radius * 2, radius * 2),
-    html: `<div class="display-flex cluster-icon hover-circle" style="--background: rgba(139, 0, 0, ${opacity});"><span>${point_count}</span></div>`,
+    html: `<div class="cluster-icon hover-circle" style="--background: rgba(139, 0, 0, ${opacity});"><span>${point_count}</span></div>`,
     className: "",
   });
 };

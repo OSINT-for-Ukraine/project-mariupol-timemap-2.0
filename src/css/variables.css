@@ -6,15 +6,17 @@
   --radius-sm: 0.4rem;
 
   --font-sm: 0.6rem;
-  --font-md: 1.15rem;
+  --font-md: 0.9rem;
+  --font-lg: 1.1rem;
 
   --text-color: white;
   --background-color: rgb(34, 34, 34);
   --events-color: rgb(139, 0, 0);
   --mid-white: #a0a0a0;
   --off-white: #efefef;
+  --silver: rgb(192, 192, 192);
   --button-hover: #f57c004d;
-  --button-active: #f57c00;
+  --button-active: 245, 124, 0;
 
   --overlay-z-index: 400;
   --modal-z-index: 700;

@@ -3,29 +3,33 @@ import { Modal } from "Components/shared/Modal";
 import { useParams } from "react-router-dom";
 import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { useEvent } from "utils/hooks/useEvent";
-import { EventDetailsModalHeader } from "./EventDetailsModalHeader";
-import { EventDetailsModalContent } from "./EventDetailsModalContent";
-import { EventDetailsModalSources } from "./EventDetailsModalSources";
+import { Header } from "./Components/Header";
+import { Content } from "./Components/Content";
+import { Sources } from "./Components/Sources";
 
-export const EventDetailsModal = () => {
+type EventDetailsModalProps = {
+  open: boolean;
+};
+
+export const EventDetailsModal = ({ open }: EventDetailsModalProps) => {
   const { eventId } = useParams();
 
   const { event, isLoading } = useEvent({ id: eventId });
 
   return (
-    <Modal position="right">
-      <div className="event-details-modal">
-        <EventDetailsModalHeader />
+    <Modal open={open} position="right">
+      <div className="modal-container event-details-modal">
+        <Header />
         {isLoading ? (
           <LoadingWheel />
         ) : (
           <>
-            <EventDetailsModalContent
+            <Content
               date={event?.date?.toDateString()}
               description={event?.description}
               location={event?.location || "--"}
             />
-            <EventDetailsModalSources sources={event?.sources} />{" "}
+            <Sources sources={event?.sources} />
           </>
         )}
       </div>

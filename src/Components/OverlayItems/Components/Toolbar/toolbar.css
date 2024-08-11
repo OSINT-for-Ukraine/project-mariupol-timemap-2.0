@@ -1,0 +1,12 @@
+.toolbar-button {
+  background-color: rgba(34, 34, 34, 0.8);
+  padding: var(--spacing-sm);
+}
+
+.toolbar-button.active {
+  background-color: rgba(var(--button-active), 0.8);
+}
+
+.toolbar-icon {
+  vertical-align: middle;
+}

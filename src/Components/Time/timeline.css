@@ -1,0 +1,21 @@
+.timeline-position {
+  bottom: 0;
+  font-size: var(--font-md);
+}
+
+.timeline-wrapper {
+  box-sizing: border-box;
+  height: auto;
+  background: var(--background-color);
+  box-shadow:
+    0 -10px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+  border-top: 1px solid var(--background-color);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+}

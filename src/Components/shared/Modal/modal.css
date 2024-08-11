@@ -1,6 +1,6 @@
 .modal-position-right {
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
 }
 
 .modal-position-center {
@@ -10,6 +10,6 @@
 }
 
 .modal-position-left {
-  top: var(--spacing-sm);
-  left: var(--spacing-sm);
+  top: var(--spacing-lg);
+  left: var(--spacing-lg);
 }

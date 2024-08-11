@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { Event } from "utils/types";
-import { EventDetailsModalSource } from "./EventDetailsModalSource";
+import { Source } from "./Source";
 
-type EventDetailsModalSources = {
+type SourcesProps = {
   sources: Event["sources"];
 };
 
-export const EventDetailsModalSources = ({
-  sources,
-}: EventDetailsModalSources) => {
+export const Sources = ({ sources }: SourcesProps) => {
   const [showSources, setShowSources] = useState(true);
 
   return (
     <>
-      <div className="event-display-sources">
+      <div className="event-display-sources flex-container gap-lg">
         <span className="line"></span>
         <button
           onClick={() => {
@@ -27,7 +25,7 @@ export const EventDetailsModalSources = ({
       {showSources
         ? sources?.map((source) => (
             <div key={source?.id} className="event-source">
-              <EventDetailsModalSource path={source?.path} />
+              <Source path={source?.path} />
             </div>
           ))
         : null}

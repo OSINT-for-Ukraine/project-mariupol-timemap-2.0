@@ -1,29 +1,25 @@
-type EventDetailsModalContentProps = {
+type ContentProps = {
   date: string;
   location: string;
   description: string;
 };
 
-export const EventDetailsModalContent = ({
-  date,
-  location,
-  description,
-}: EventDetailsModalContentProps) => {
+export const Content = ({ date, location, description }: ContentProps) => {
   return (
     <>
-      <div className="event-details-labels">
+      <div className="flex-container gap-lg margin-top">
         <div>
           <p className="event-details-label">Reported incident date</p>
-          <p>{date}</p>
+          <p className="margin-top">{date}</p>
         </div>
         <div>
           <p className="event-details-label">Location</p>
-          <p> {location} </p>
+          <p className="margin-top"> {location} </p>
         </div>
       </div>
-      <div className="event-summary">
+      <div className="event-summary margin-top">
         <p className="event-details-label">Summary</p>
-        <p>{description}</p>
+        <p className="margin-top">{description}</p>
       </div>
     </>
   );

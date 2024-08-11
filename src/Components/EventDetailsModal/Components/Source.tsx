@@ -5,10 +5,10 @@ import {
   XEmbed,
   YouTubeEmbed,
 } from "react-social-media-embed";
-import { getSocialMediaType } from "./utils";
+import { getSocialMediaType } from "../utils";
 import { TelegramEmbed } from "./TelegramEmbed";
 
-export const EventDetailsModalSource = ({ path }: { path: string }) => {
+export const Source = ({ path }: { path: string }) => {
   const mediaType = getSocialMediaType(path);
 
   switch (mediaType) {

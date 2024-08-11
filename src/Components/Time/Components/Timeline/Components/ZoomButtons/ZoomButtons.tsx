@@ -18,7 +18,7 @@ export const ZoomButtons = () => {
     <div className="zoom-controls">
       {zoomLevels.map((item, index) => (
         <NavLink
-          className={`zoom-level-button`}
+          className="zoom-level-button"
           key={index}
           to={`/date/${calculateDateFromMonthsAgo(item.months)}__${getIsoDate(currentDate)}`}
         >

@@ -8,7 +8,6 @@
 
 .zoom-level-button {
   padding: var(--button-default-padding);
-  font-size: 0.875rem;
   cursor: pointer;
   text-anchor: middle;
   letter-spacing: 0.05rem;
@@ -26,5 +25,5 @@
 
 .zoom-level-button.active {
   color: var(--off-white);
-  background-color: var(--button-active);
+  background-color: rgb(var(--button-active));
 }
