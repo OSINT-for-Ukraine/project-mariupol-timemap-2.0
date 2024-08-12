@@ -3,7 +3,7 @@ import { Event } from "utils/types";
 import { Source } from "./Source";
 
 type SourcesProps = {
-  sources: Event["sources"];
+  sources?: Event["sources"];
 };
 
 export const Sources = ({ sources }: SourcesProps) => {

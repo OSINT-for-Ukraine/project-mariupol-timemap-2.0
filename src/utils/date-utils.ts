@@ -12,3 +12,12 @@ export const calculateDateFromMonthsAgo = (monthsAgo: number) => {
   );
   return getIsoDate(oneMonthAgoDate);
 };
+
+export const getFirstDayOfMonth = (dateString?: string) => {
+  if (!dateString) {
+    return "";
+  }
+  const dateParts = dateString.split("-");
+  dateParts[2] = "01";
+  return dateParts.join("-");
+};

@@ -16,7 +16,6 @@ import {
   getIsoDate,
 } from "utils/date-utils";
 import { LoadingWheel } from "Components/shared/LoadingWheel";
-import { Event } from "utils/types";
 import { Time } from "Components/Time";
 import { EventDetailsModal } from "Components/EventDetailsModal";
 
@@ -48,7 +47,7 @@ function App() {
         url={isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]}
       ></TileLayer>
       <OverlayItems />
-      {isLoading ? <LoadingWheel /> : <Space events={events as Event[]} />}
+      {isLoading ? <LoadingWheel /> : <Space events={events} />}
       <EventDetailsModal open={!!eventId} />
       <Time />
     </MapContainer>

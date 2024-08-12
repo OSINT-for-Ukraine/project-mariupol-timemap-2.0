@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     loader: loader,
   },
   { path: "date/:date", element: <App /> },
+  {
+    path: "date/:date/millitary_units/:millitary_units_date",
+    element: <App />,
+  },
   { path: "date/:date/event/:eventId", element: <App /> },
 ]);
 
