@@ -3,6 +3,7 @@ import { Filters } from "Components/Filters";
 import { Artillery } from "Components/Artillery";
 import { FullScreen } from "Components/FullScreen";
 import { ArtilleryProvider } from "providers/ArtilleryProvider";
+import { MillitaryUnits } from "Components/MillitaryUnits";
 
 export const Toolbar = () => {
   return (
@@ -11,6 +12,7 @@ export const Toolbar = () => {
       <ArtilleryProvider>
         <Artillery />
       </ArtilleryProvider>
+      <MillitaryUnits />
       <FullScreen />
     </div>
   );

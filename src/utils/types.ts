@@ -10,6 +10,7 @@ type EventFilter = {
 };
 
 export type Event = {
+  _id: string;
   id: string;
   description: string;
   date: Date;
@@ -18,10 +19,4 @@ export type Event = {
   longitude: string;
   filters: EventFilter[];
   sources: EventSource[];
-};
-
-export type Artillery = {
-  id: number;
-  title: string;
-  range: number;
 };

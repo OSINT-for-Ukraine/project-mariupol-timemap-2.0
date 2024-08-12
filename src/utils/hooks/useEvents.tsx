@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { useCollection } from "./useCollection";
+import { Event } from "utils/types";
 
 type UseEventsArgs = {
   startDate: string;
@@ -7,15 +8,18 @@ type UseEventsArgs = {
   filters: string[];
 };
 
+type EventsCollection = Realm.Services.MongoDB.MongoDBCollection<Event>;
+
 export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
-  const eventsCollection = useCollection();
+  const eventsCollection = useCollection("events");
 
   const fetcher = async (
     intervalBegin: string,
     intervalEnd: string,
     filtersArr: string[],
+    eventsCollectionArg: EventsCollection,
   ) => {
-    const fetchEvents = await eventsCollection?.find(
+    const fetchEvents = await eventsCollectionArg?.find(
       {
         date: {
           $gt: new Date(intervalBegin),
@@ -47,8 +51,13 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
     isLoading,
   } = useSWR(
     [startDate, endDate, filters, eventsCollection],
-    ([intervalBegin, intervalEnd, filtersArr]) =>
-      fetcher(intervalBegin, intervalEnd, filtersArr),
+    ([intervalBegin, intervalEnd, filtersArr, eventsCollection]) =>
+      fetcher(
+        intervalBegin,
+        intervalEnd,
+        filtersArr,
+        eventsCollection as EventsCollection,
+      ),
     {
       fallbackData: [],
     },

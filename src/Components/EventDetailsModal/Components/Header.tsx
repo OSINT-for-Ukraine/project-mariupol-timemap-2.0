@@ -1,7 +1,12 @@
 import { ModalHeader } from "Components/shared/ModalHeader/ModalHeader";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { getFirstDayOfMonth } from "utils/date-utils";
 
-export const Header = () => {
+type HeaderProps = {
+  eventDate?: string;
+};
+
+export const Header = ({ eventDate }: HeaderProps) => {
   const { date } = useParams();
 
   const [searchParams] = useSearchParams();
@@ -17,7 +22,17 @@ export const Header = () => {
         })
       }
     >
-      <button className="modal-button">Display military units</button>
+      <button
+        onClick={() =>
+          navigate({
+            pathname: `/date/${date}/millitary_units/${getFirstDayOfMonth(eventDate)}`,
+            search: `?${searchParams.toString()}`,
+          })
+        }
+        className="modal-button"
+      >
+        Display military units
+      </button>
     </ModalHeader>
   );
 };
