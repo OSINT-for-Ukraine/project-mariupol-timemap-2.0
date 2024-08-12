@@ -1,15 +1,21 @@
 import useSWR from "swr";
-import { useCollection } from "./useCollection";
+import { useCollection } from "utils/hooks/useCollection";
+import { Event } from "utils/types";
 
 type UseEventArgs = {
   id?: string;
 };
 
-export const useEvent = ({ id }: UseEventArgs) => {
-  const eventsCollection = useCollection();
+type EventsCollection = Realm.Services.MongoDB.MongoDBCollection<Event>;
 
-  const fetcher = async (eventId: string) => {
-    const fetchEvents = await eventsCollection?.find(
+export const useEvent = ({ id }: UseEventArgs) => {
+  const eventsCollection = useCollection("events");
+
+  const fetcher = async (
+    eventId: string,
+    eventsCollectionArg: EventsCollection
+  ) => {
+    const fetchEvents = await eventsCollectionArg?.find(
       {
         id: eventId,
       },
@@ -33,7 +39,7 @@ export const useEvent = ({ id }: UseEventArgs) => {
     error,
     isLoading,
   } = useSWR(id ? [id, eventsCollection] : null, ([eventId]) =>
-    fetcher(eventId)
+    fetcher(eventId, eventsCollection as EventsCollection)
   );
 
   return { event: event?.[0], isLoading, error };

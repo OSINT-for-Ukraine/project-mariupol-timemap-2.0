@@ -2,7 +2,7 @@ import { useState } from "react";
 import artilleryIconGrey from "assets/icons/artillery-grey.png";
 import artilleryIconWhite from "assets/icons/artillery-white.png";
 import { ArtilleryItem } from "./Components/ArtilleryItem";
-import { useArtilleryProvider } from "utils/hooks/useArtilleryProvider";
+import { useArtilleryProvider } from "./hooks/useArtilleryProvider";
 import { CloseIcon } from "Components/shared/CloseIcon/CloseIcon";
 import { ArtilleryListModal } from "./Components/ArtilleryListModal";
 

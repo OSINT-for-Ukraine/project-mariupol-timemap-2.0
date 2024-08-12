@@ -1,14 +1,16 @@
 import { useMemo } from "react";
 import { useApp } from "./useApp";
 
-export const useCollection = () => {
+type CollectionName = "events" | "millitary_units";
+
+export const useCollection = (collectionName: CollectionName) => {
   const app = useApp();
 
   return useMemo(() => {
     const mongoClient = app?.currentUser?.mongoClient("mongodb-atlas");
-    const eventsCollection = mongoClient
+    const collection = mongoClient
       ?.db("OFU-temporary")
-      .collection("events");
-    return eventsCollection;
-  }, [app?.currentUser]);
+      .collection(collectionName);
+    return collection;
+  }, [app?.currentUser, collectionName]);
 };

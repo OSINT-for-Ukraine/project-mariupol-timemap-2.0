@@ -131,3 +131,8 @@ li {
   text-transform: uppercase;
   margin: 0;
 }
+
+.black-dot-icon {
+  border-radius: 50%;
+  background-color: black;
+}

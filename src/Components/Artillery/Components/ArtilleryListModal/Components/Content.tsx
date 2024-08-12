@@ -1,5 +1,5 @@
-import { useArtilleryProvider } from "utils/hooks/useArtilleryProvider";
-import { Artillery } from "utils/types";
+import { useArtilleryProvider } from "Components/Artillery/hooks/useArtilleryProvider";
+import { Artillery } from "Components/Artillery/types";
 
 const displayRangeInKm = (range: number) => {
   const rangeInKm = (range / 1000).toFixed(2);

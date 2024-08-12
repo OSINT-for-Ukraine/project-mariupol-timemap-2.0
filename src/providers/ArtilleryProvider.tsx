@@ -1,5 +1,5 @@
 import { useState, createContext, ReactNode } from "react";
-import { Artillery } from "utils/types";
+import { Artillery } from "Components/Artillery/types";
 
 type SelectedArtilleryState = Omit<Artillery, "title"> | null;
 
