@@ -17,7 +17,7 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
     intervalBegin: string,
     intervalEnd: string,
     filtersArr: string[],
-    eventsCollectionArg: EventsCollection
+    eventsCollectionArg: EventsCollection,
   ) => {
     const fetchEvents = await eventsCollectionArg?.find(
       {
@@ -38,8 +38,9 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
           id: 1,
           latitude: 1,
           longitude: 1,
+          date: 1,
         },
-      }
+      },
     );
     return fetchEvents;
   };
@@ -55,11 +56,11 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
         intervalBegin,
         intervalEnd,
         filtersArr,
-        eventsCollection as EventsCollection
+        eventsCollection as EventsCollection,
       ),
     {
       fallbackData: [],
-    }
+    },
   );
 
   return { events, isLoading, error };
