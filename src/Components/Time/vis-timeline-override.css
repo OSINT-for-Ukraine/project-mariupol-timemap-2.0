@@ -1,0 +1,48 @@
+.vis-timeline {
+  background-color: rgba(34, 34, 34, 0.9);
+}
+
+.vis-time-axis .vis-text.vis-even,
+.vis-time-axis .vis-text.vis-odd {
+  color: var(--text-color);
+}
+
+.vis-item.vis-box.vis-readonly {
+  background-color: var(--events-color);
+  border: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.vis-item.vis-dot.vis-readonly {
+  display: none;
+}
+
+.vis-item.vis-line.vis-readonly {
+  display: none;
+}
+
+.vis-item.vis-box.vis-selected {
+  background-color: rgb(var(--button-active));
+}
+
+.vis-item .vis-item-content {
+  margin: 0 !important;
+  padding: 2px !important;
+}
+
+.vis-item.vis-range.vis-cluster.vis-readonly {
+  background-color: var(--events-color);
+  border: none;
+  border-radius: 50%;
+}
+
+.vis-item.vis-range.vis-cluster.vis-selected {
+  background-color: rgb(var(--button-active));
+}
+
+.vis-item.vis-cluster-line,
+.vis-item.vis-cluster-dot {
+  border-color: var(--events-color);
+}

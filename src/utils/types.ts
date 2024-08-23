@@ -20,3 +20,7 @@ export type Event = {
   filters: EventFilter[];
   sources: EventSource[];
 };
+
+export type TupleOfTwoNumbers = [number, number];
+
+export type TupleOfFourNumbers = [number, number, number, number];

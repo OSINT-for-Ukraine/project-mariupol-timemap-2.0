@@ -1,0 +1,37 @@
+.date-range {
+  bottom: 300px;
+}
+
+.date-range > form {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  opacity: 0.8;
+
+  padding: var(--spacing-sm);
+  margin-inline: var(--spacing-sm);
+
+  border-radius: var(--radius-sm);
+
+  font-size: 1rem;
+
+  & input {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: block;
+  }
+}
+
+button {
+  color: var(--text-color);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.date-range button:hover {
+  background-color: rgba(245, 124, 0, 0.3);
+}

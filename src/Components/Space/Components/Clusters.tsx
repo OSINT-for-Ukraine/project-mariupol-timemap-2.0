@@ -1,8 +1,8 @@
 import { Cluster } from "./Cluster.tsx";
 import { Event } from "./Event.tsx";
 import Supercluster from "supercluster";
-import { reverseTuple } from "../utils.ts";
-import { TupleOfTwoNumbers } from "../types.ts";
+import { reverseTuple } from "Components/Space/utils.ts";
+import { TupleOfTwoNumbers } from "utils/types.ts";
 
 type ClustersPropsType = {
   clusters: Supercluster.ClusterFeature<Supercluster.AnyProps>[];

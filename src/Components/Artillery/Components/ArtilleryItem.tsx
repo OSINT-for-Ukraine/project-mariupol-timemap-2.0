@@ -1,8 +1,8 @@
-import { TupleOfTwoNumbers } from "Components/Space/types";
+import { TupleOfTwoNumbers } from "utils/types";
 import { LatLngTuple } from "leaflet";
 import { useState } from "react";
 import { Circle, Marker, useMapEvent } from "react-leaflet";
-import { artilleryIcon } from "../utils/artilleryIcon";
+import { artilleryIcon } from "Components/Artillery/utils/artilleryIcon";
 
 type ArtilleryItemProps = {
   artilleryRange: number;

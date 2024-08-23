@@ -1,7 +1,7 @@
 export const currentDate = new Date();
 
 export const getIsoDate = (date: Date) => {
-  return date.toISOString().split("T")[0];
+  return date?.toISOString().split("T")[0];
 };
 
 export const calculateDateFromMonthsAgo = (monthsAgo: number) => {
