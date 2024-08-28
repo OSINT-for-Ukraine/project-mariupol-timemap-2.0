@@ -16,10 +16,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 32px;
+  width: 100%;
+  height: 5px;
   margin: auto;
   background-color: rgba(34, 34, 34, 0.9);
   border-radius: 6px 6px 0 0;
-  cursor: pointer;
+  cursor: row-resize;
 }
