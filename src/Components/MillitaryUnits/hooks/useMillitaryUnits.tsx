@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { MillitaryUnit } from "Components/MillitaryUnits/types";
 import { useCollection } from "utils/hooks/useCollection";
+import { isValidISODate } from "utils/date-utils";
 
 type UseMillitaryUnitsArgs = {
   date?: string;
@@ -16,12 +17,16 @@ type MillitaryUnitsResponse = {
 };
 
 export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
-  const millitaryUnitsCollection = useCollection("millitary_units");
+  const millitaryUnitsCollection = useCollection("Millitary_Units");
 
   const fetcher = async (
     dateArg: string,
     millitaryUnitsCollectionArg: MillitaryUnitsCollection
   ) => {
+    if (!isValidISODate(dateArg)) {
+      throw new Error(`${dateArg} is not a valid ISO date.`);
+    }
+
     const fetchMillitaryUnits = await millitaryUnitsCollectionArg?.find(
       {
         date: new Date(dateArg),
@@ -30,6 +35,7 @@ export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
         projection: { _id: 0 },
       }
     );
+
     return fetchMillitaryUnits;
   };
 

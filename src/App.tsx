@@ -18,6 +18,7 @@ import {
 import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { Time } from "Components/Time";
 import { EventDetailsModal } from "Components/EventDetailsModal";
+import { ErrorModal } from "Components/shared/ErrorModal";
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
@@ -28,7 +29,7 @@ function App() {
 
   const dateArr = date?.split("__");
 
-  const { events, isLoading } = useEvents({
+  const { events, isLoading, error } = useEvents({
     startDate: dateArr?.[0] || calculateDateFromMonthsAgo(1),
     endDate: dateArr?.[1] || getIsoDate(currentDate),
     filters: searchParams.getAll("filter"),
@@ -48,6 +49,7 @@ function App() {
       ></TileLayer>
       <OverlayItems />
       <EventDetailsModal />
+      {error ? <ErrorModal message={error.message} /> : null}
       {isLoading ? (
         <LoadingWheel />
       ) : (

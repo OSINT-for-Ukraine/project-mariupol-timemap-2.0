@@ -10,15 +10,19 @@ import { Sources } from "./Components/Sources";
 export const EventDetailsModal = () => {
   const { eventId } = useParams();
 
-  const { event, isLoading } = useEvent({ id: eventId });
+  const { event, isLoading, error } = useEvent({ id: eventId });
 
   return (
     <Modal open={!!eventId} position="right">
       <div className="modal-container event-details-modal">
         <Header eventDate={event?.date?.toISOString()} />
-        {isLoading ? (
-          <LoadingWheel />
-        ) : (
+        {error ? (
+          <div className="error-message-container">
+            <p>{error.message}</p>
+          </div>
+        ) : null}
+        {isLoading ? <LoadingWheel /> : null}
+        {event ? (
           <>
             <Content
               date={event?.date?.toDateString() || ""}
@@ -27,7 +31,7 @@ export const EventDetailsModal = () => {
             />
             <Sources sources={event?.sources} />
           </>
-        )}
+        ) : null}
       </div>
     </Modal>
   );

@@ -1,0 +1,29 @@
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container {
+  margin-block-start: var(--spacing-lg);
+  text-align: center;
+}
+
+.error-status {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.error-message {
+  margin-block: var(--spacing-lg);
+  font-size: var(--font-lg);
+}
+.home-link {
+  padding: var(--button-default-padding);
+  color: #ffffff;
+  background-color: rgb(var(--button-active));
+  text-decoration: none;
+  border-radius: 5px;
+}
+.home-link:hover {
+  background-color: var(--button-hover);
+}
