@@ -8,14 +8,16 @@ import App from "./App.tsx";
 import { MapLayerProvider } from "providers/MapLayerProvider.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { loader } from "utils/loader.ts";
+import { Error } from "Components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     loader: loader,
+    errorElement: <Error />,
   },
-  { path: "date/:date", element: <App /> },
+  { path: "date/:date", element: <App />, errorElement: <Error /> },
   {
     path: "date/:date/millitary_units/:millitary_units_date",
     element: <App />,

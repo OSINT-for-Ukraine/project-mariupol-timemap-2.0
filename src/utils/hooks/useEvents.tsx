@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useCollection } from "./useCollection";
 import { Event } from "utils/types";
+import { isValidISODate } from "utils/date-utils";
 
 type UseEventsArgs = {
   startDate: string;
@@ -11,7 +12,7 @@ type UseEventsArgs = {
 type EventsCollection = Realm.Services.MongoDB.MongoDBCollection<Event>;
 
 export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
-  const eventsCollection = useCollection("events");
+  const eventsCollection = useCollection("Events");
 
   const fetcher = async (
     intervalBegin: string,
@@ -19,6 +20,14 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
     filtersArr: string[],
     eventsCollectionArg: EventsCollection
   ) => {
+    if (!isValidISODate(intervalBegin)) {
+      throw new Error(`${intervalBegin} is not a valid ISO date.`);
+    }
+
+    if (!isValidISODate(intervalEnd)) {
+      throw new Error(`${intervalEnd} is not a valid ISO date.`);
+    }
+
     const fetchEvents = await eventsCollectionArg?.find(
       {
         date: {

@@ -41,3 +41,14 @@
   border-radius: var(--radius-sm);
   border: 1px solid #d7e3ec;
 }
+
+.error-message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & p {
+    margin-block: var(--spacing-lg);
+  }
+}

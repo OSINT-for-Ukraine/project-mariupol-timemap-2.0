@@ -2,12 +2,17 @@ import { ReactNode } from "react";
 
 type ModalHeaderProps = {
   onClick: () => void;
-  children: ReactNode;
+  children?: ReactNode;
+  className?: string;
 };
 
-export const ModalHeader = ({ onClick, children }: ModalHeaderProps) => {
+export const ModalHeader = ({
+  onClick,
+  children,
+  className,
+}: ModalHeaderProps) => {
   return (
-    <div className="modal-header">
+    <div className={`modal-header ${className ? className : ""}`}>
       {children}
       <button
         className="modal-button"

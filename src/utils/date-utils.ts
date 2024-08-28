@@ -21,3 +21,8 @@ export const getFirstDayOfMonth = (dateString?: string) => {
   dateParts[2] = "01";
   return dateParts.join("-");
 };
+
+export const isValidISODate = (dateString: string) => {
+  const date = new Date(dateString);
+  return !isNaN(date.getTime());
+};

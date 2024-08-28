@@ -9,7 +9,7 @@ type UseEventArgs = {
 type EventsCollection = Realm.Services.MongoDB.MongoDBCollection<Event>;
 
 export const useEvent = ({ id }: UseEventArgs) => {
-  const eventsCollection = useCollection("events");
+  const eventsCollection = useCollection("Events");
 
   const fetcher = async (
     eventId: string,
@@ -31,6 +31,10 @@ export const useEvent = ({ id }: UseEventArgs) => {
         limit: 10,
       }
     );
+    if (fetchEvents.length === 0) {
+      throw new Error(`Couldn't find event with "${id}" id`);
+    }
+
     return fetchEvents;
   };
 
