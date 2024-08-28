@@ -1,5 +1,6 @@
 .date-range {
-  bottom: 300px;
+  width: min-content;
+  margin-block-end: -30px;
 }
 
 .date-range > form {
