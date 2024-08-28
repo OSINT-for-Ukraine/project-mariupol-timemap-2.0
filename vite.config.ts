@@ -1,11 +1,21 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import * as path from "path";
+import generateFile from "vite-plugin-generate-file";
 
 // https://vitejs.dev/config/
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    generateFile([
+      {
+        output: "./_redirects",
+        type: "template",
+        template: "./template.ejs",
+      },
+    ]),
+  ],
   resolve: {
     alias: {
       Components: path.resolve(__dirname, "./src/Components"),
