@@ -1,4 +1,4 @@
-import "./zoomButtons.css";
+import "./zoomToButtons.css";
 import { NavLink } from "react-router-dom";
 import {
   calculateDateFromMonthsAgo,
@@ -13,7 +13,15 @@ const zoomLevels = [
   { label: "Zoom to 2 years", months: 24, id: 4 },
 ];
 
-export const ZoomButtons = () => {
+type ZoomToButtonsProps = {
+  isCustomDateRangeOpen: boolean;
+  onCustomRangeClick: () => void;
+};
+
+export const ZoomToButtons = ({
+  isCustomDateRangeOpen,
+  onCustomRangeClick,
+}: ZoomToButtonsProps) => {
   return (
     <div className="zoom-controls">
       {zoomLevels.map((item, index) => (
@@ -25,6 +33,12 @@ export const ZoomButtons = () => {
           {item.label}
         </NavLink>
       ))}
+      <button
+        onClick={onCustomRangeClick}
+        className={`zoom-level-button ${isCustomDateRangeOpen ? "custom-range-active" : ""}`}
+      >
+        Custom range
+      </button>
     </div>
   );
 };

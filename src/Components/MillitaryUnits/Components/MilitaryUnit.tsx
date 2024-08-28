@@ -1,6 +1,6 @@
 import { Marker, Popup } from "react-leaflet";
-import { MillitaryUnit as MillitaryUnitType } from "../types";
-import { getMillitaryUnitIcon } from "../icons/MillitaryUnitIcon";
+import { MillitaryUnit as MillitaryUnitType } from "Components/MillitaryUnits/types";
+import { getMillitaryUnitIcon } from "Components/MillitaryUnits/icons/MillitaryUnitIcon";
 
 type MilitaryUnitProps = {
   unit: MillitaryUnitType;

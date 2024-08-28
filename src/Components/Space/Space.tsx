@@ -5,12 +5,8 @@ import { useMapEvents } from "react-leaflet/hooks";
 import { Clusters } from "./Components/Clusters.tsx";
 import { convertEventsToGeoJsonObj, reverseTuple } from "./utils.ts";
 import { INITIAL_MAP_BOUNDARIES, INITIAL_MAP_ZOOM } from "utils/const.ts";
-import {
-  MapBoundsAndZoomType,
-  TupleOfFourNumbers,
-  TupleOfTwoNumbers,
-} from "./types.ts";
-import { Event } from "utils/types.ts";
+import { MapBoundsAndZoomType } from "./types.ts";
+import { Event, TupleOfFourNumbers, TupleOfTwoNumbers } from "utils/types.ts";
 
 type SpacePropsType = {
   events: Event[];
@@ -48,6 +44,7 @@ export const Space = ({ events }: SpacePropsType) => {
     radius: 30,
     minZoom: 2,
     maxZoom: 16,
+    minPoints: 4,
   }).load(geoJsonObj);
 
   const clusters = clustersRef.getClusters(

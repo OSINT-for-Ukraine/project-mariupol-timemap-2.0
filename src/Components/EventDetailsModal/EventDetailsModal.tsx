@@ -7,17 +7,13 @@ import { Header } from "./Components/Header";
 import { Content } from "./Components/Content";
 import { Sources } from "./Components/Sources";
 
-type EventDetailsModalProps = {
-  open: boolean;
-};
-
-export const EventDetailsModal = ({ open }: EventDetailsModalProps) => {
+export const EventDetailsModal = () => {
   const { eventId } = useParams();
 
   const { event, isLoading } = useEvent({ id: eventId });
 
   return (
-    <Modal open={open} position="right">
+    <Modal open={!!eventId} position="right">
       <div className="modal-container event-details-modal">
         <Header eventDate={event?.date?.toISOString()} />
         {isLoading ? (

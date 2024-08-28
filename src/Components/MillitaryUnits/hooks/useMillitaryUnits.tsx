@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { MillitaryUnit } from "../types";
+import { MillitaryUnit } from "Components/MillitaryUnits/types";
 import { useCollection } from "utils/hooks/useCollection";
 
 type UseMillitaryUnitsArgs = {

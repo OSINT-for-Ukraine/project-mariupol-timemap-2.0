@@ -1,4 +1,4 @@
-import { TupleOfFourNumbers, TupleOfTwoNumbers } from "Components/Space/types";
+import { TupleOfFourNumbers, TupleOfTwoNumbers } from "utils/types";
 import { LatLngBounds } from "leaflet";
 
 const mapBoxStreets = import.meta.env.VITE_BELLINGCAT_MAPBOX_STREETS;

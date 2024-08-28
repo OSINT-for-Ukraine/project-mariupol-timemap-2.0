@@ -1,7 +1,7 @@
 import { Marker, useMap } from "react-leaflet";
-import { getEventIcon } from "../icons/EventIcon";
-import { TupleOfTwoNumbers } from "../types";
+import { getEventIcon } from "Components/Space/icons/EventIcon";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { TupleOfTwoNumbers } from "utils/types";
 
 type EventPropsType = {
   position: TupleOfTwoNumbers;

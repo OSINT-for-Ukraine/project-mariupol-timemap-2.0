@@ -1,4 +1,4 @@
-import { TupleOfTwoNumbers } from "Components/Space/types";
+import { TupleOfTwoNumbers } from "utils/types";
 
 export type MillitaryUnit = {
   coordinates: TupleOfTwoNumbers;

@@ -1,6 +1,4 @@
-export type TupleOfTwoNumbers = [number, number];
-
-export type TupleOfFourNumbers = [number, number, number, number];
+import { TupleOfFourNumbers, TupleOfTwoNumbers } from "utils/types";
 
 export type GeoJSONObj = {
   type: "Feature";

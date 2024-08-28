@@ -22,7 +22,7 @@ import { EventDetailsModal } from "Components/EventDetailsModal";
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
 
-  const { date, eventId } = useParams();
+  const { date } = useParams();
 
   const [searchParams] = useSearchParams();
 
@@ -47,9 +47,15 @@ function App() {
         url={isSatelliteMode ? tileLayers["satellite"] : tileLayers["streets"]}
       ></TileLayer>
       <OverlayItems />
-      {isLoading ? <LoadingWheel /> : <Space events={events} />}
-      <EventDetailsModal open={!!eventId} />
-      <Time />
+      <EventDetailsModal />
+      {isLoading ? (
+        <LoadingWheel />
+      ) : (
+        <>
+          <Space events={events} />
+          <Time events={events} />
+        </>
+      )}
     </MapContainer>
   );
 }

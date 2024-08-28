@@ -22,8 +22,8 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
     const fetchEvents = await eventsCollectionArg?.find(
       {
         date: {
-          $gt: new Date(intervalBegin),
-          $lt: new Date(intervalEnd),
+          $gte: new Date(intervalBegin),
+          $lte: new Date(intervalEnd),
         },
         ...(filtersArr.length > 0 && {
           filters: {
@@ -38,6 +38,7 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
           id: 1,
           latitude: 1,
           longitude: 1,
+          date: 1,
         },
       }
     );

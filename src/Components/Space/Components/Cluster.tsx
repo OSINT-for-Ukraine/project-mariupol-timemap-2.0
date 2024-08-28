@@ -1,8 +1,9 @@
 import { Marker } from "react-leaflet";
 import Supercluster from "supercluster";
-import { getClusterDisplayValue, reverseTuple } from "../utils";
-import { getClusterIcon } from "../icons/ClusterIcon";
-import { TupleOfTwoNumbers } from "../types";
+import { reverseTuple } from "Components/Space/utils";
+import { getClusterIcon } from "Components/Space/icons/ClusterIcon";
+import { TupleOfTwoNumbers } from "utils/types";
+import { getClusterDisplayValue } from "utils/utils";
 
 type ClusterProps = {
   cluster: Supercluster.ClusterFeature<Supercluster.AnyProps>;
