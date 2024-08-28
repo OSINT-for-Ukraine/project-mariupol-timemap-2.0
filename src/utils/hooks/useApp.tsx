@@ -15,9 +15,9 @@ export const useApp = () => {
     const loginAnonymousUser = async () => {
       const credentials = Realm.Credentials.anonymous();
       await realmApp.logIn(credentials);
+      setApp(realmApp);
     };
     loginAnonymousUser();
-    setApp(realmApp);
   }, []);
 
   return app;
