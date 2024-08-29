@@ -11,11 +11,11 @@ export const TimelineHandle = forwardRef(function TimelineHandle(
   const handleMouseMove = (event: Event) => {
     event.preventDefault();
     const mouseEvent = event as MouseEvent;
-    console.log(mouseEvent.clientY);
 
     const timeline = timelineRef.current;
     if (timeline) {
-      const newHeight = 200 - (mouseEvent.clientY - 485);
+      const viewHeight = document.body.clientHeight;
+      const newHeight = viewHeight - mouseEvent.clientY - 45;
       timeline.setOptions({
         ...options,
         height: newHeight < 20 ? 0 : newHeight,
