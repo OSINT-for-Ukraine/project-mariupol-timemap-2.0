@@ -30,6 +30,7 @@
 .vis-item .vis-item-content {
   margin: 0 !important;
   padding: 2px !important;
+  color: var(--off-white);
 }
 
 .vis-item.vis-range.vis-cluster.vis-readonly {
