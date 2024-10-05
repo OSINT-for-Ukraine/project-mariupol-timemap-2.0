@@ -1,6 +1,4 @@
 import useSWR from "swr";
-import { useCollection } from "./useCollection";
-import { Event } from "utils/types";
 import { isValidISODate } from "utils/date-utils";
 
 type UseEventsArgs = {
@@ -9,16 +7,11 @@ type UseEventsArgs = {
   filters: string[];
 };
 
-type EventsCollection = Realm.Services.MongoDB.MongoDBCollection<Event>;
-
 export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
-  const eventsCollection = useCollection("Events");
-
   const fetcher = async (
     intervalBegin: string,
     intervalEnd: string,
-    filtersArr: string[],
-    eventsCollectionArg: EventsCollection
+    filtersArr: string[]
   ) => {
     if (!isValidISODate(intervalBegin)) {
       throw new Error(`${intervalBegin} is not a valid ISO date.`);
@@ -28,30 +21,20 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
       throw new Error(`${intervalEnd} is not a valid ISO date.`);
     }
 
-    const fetchEvents = await eventsCollectionArg?.find(
-      {
-        date: {
-          $gte: new Date(intervalBegin),
-          $lte: new Date(intervalEnd),
-        },
-        ...(filtersArr.length > 0 && {
-          filters: {
-            $elemMatch: {
-              id: { $in: filters },
-            },
-          },
-        }),
+    const response = await fetch("http://localhost:3000/events", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        projection: {
-          id: 1,
-          latitude: 1,
-          longitude: 1,
-          date: 1,
-        },
-      }
-    );
-    return fetchEvents;
+      body: JSON.stringify({ intervalBegin, intervalEnd, filtersArr }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    return data;
   };
 
   const {
@@ -59,14 +42,9 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
     error,
     isLoading,
   } = useSWR(
-    [startDate, endDate, filters, eventsCollection],
-    ([intervalBegin, intervalEnd, filtersArr, eventsCollection]) =>
-      fetcher(
-        intervalBegin,
-        intervalEnd,
-        filtersArr,
-        eventsCollection as EventsCollection
-      ),
+    [startDate, endDate, filters],
+    ([intervalBegin, intervalEnd, filtersArr]) =>
+      fetcher(intervalBegin, intervalEnd, filtersArr),
     {
       fallbackData: [],
     }

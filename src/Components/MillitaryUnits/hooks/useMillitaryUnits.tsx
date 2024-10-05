@@ -1,53 +1,36 @@
 import useSWR from "swr";
-import { MillitaryUnit } from "Components/MillitaryUnits/types";
-import { useCollection } from "utils/hooks/useCollection";
 import { isValidISODate } from "utils/date-utils";
 
 type UseMillitaryUnitsArgs = {
   date?: string;
 };
 
-type MillitaryUnitsCollection =
-  Realm.Services.MongoDB.MongoDBCollection<MillitaryUnitsResponse>;
-
-type MillitaryUnitsResponse = {
-  _id: string;
-  date: Date;
-  units: MillitaryUnit[];
-};
-
 export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
-  const millitaryUnitsCollection = useCollection("Millitary_Units");
-
-  const fetcher = async (
-    dateArg: string,
-    millitaryUnitsCollectionArg: MillitaryUnitsCollection
-  ) => {
+  const fetcher = async (dateArg: string) => {
     if (!isValidISODate(dateArg)) {
       throw new Error(`${dateArg} is not a valid ISO date.`);
     }
 
-    const fetchMillitaryUnits = await millitaryUnitsCollectionArg?.find(
-      {
-        date: new Date(dateArg),
+    const response = await fetch(`http://localhost:3000/millitary/${date}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        projection: { _id: 0 },
-      }
-    );
+    });
 
-    return fetchMillitaryUnits;
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    return data;
   };
 
   const {
     data: millitaryUnits,
     error,
     isLoading,
-  } = useSWR(
-    date ? [date, millitaryUnitsCollection] : null,
-    ([date, millitaryUnitsCollection]) =>
-      fetcher(date, millitaryUnitsCollection as MillitaryUnitsCollection)
-  );
+  } = useSWR(date ? date : null, (date) => fetcher(date));
 
-  return { millitaryUnits, isLoading, error };
+  return { millitaryUnits: millitaryUnits?.[0], isLoading, error };
 };
