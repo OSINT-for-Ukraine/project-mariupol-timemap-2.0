@@ -31,6 +31,7 @@ jobs:
           VITE_BELLINGCAT_MAPBOX_STREETS: ${{ secrets.VITE_BELLINGCAT_MAPBOX_STREETS }}
           VITE_BELLINGCAT_MAPBOX_SATELLITE: ${{ secrets.VITE_BELLINGCAT_MAPBOX_SATELLITE }}
           VITE_APP_ID: ${{ secrets.VITE_APP_ID }}
+          VITE_BELLINGCAT_MAPBOX_TOKEN: ${{ secrets.VITE_BELLINGCAT_MAPBOX_TOKEN}}
           VITE_TEST: ${{ secrets.VITE_TEST }}
 
         run: |
