@@ -29,14 +29,13 @@ jobs:
           npm install
           npm run build
 
-      # - name: Copy frontend build to backend
-      #   run: |
-      #     cp -r ./dist api/
+      - name: Copy frontend build to backend
+        run: |
+          cp -r ./dist api/
+
       - name: Zip artifact for deployment
         run: zip release.zip ./api -r
 
-      # - name: Azure Login
-      #   uses: Azure/login@v2.2.0
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -67,12 +66,3 @@ jobs:
           slot-name: "Production"
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2A31A3F6D844D2B99EAF5E68A34DFA8 }}
-
-      # - name: "Deploy to Azure Web App"
-      #   id: deploy-to-webapp
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: "Project-Mariupol"
-      #     slot-name: "production"
-      #     package: ./api
-      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2A31A3F6D844D2B99EAF5E68A34DFA8 }}
