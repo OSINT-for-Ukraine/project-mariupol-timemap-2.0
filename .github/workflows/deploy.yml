@@ -31,7 +31,8 @@ jobs:
 
       - name: Copy frontend build to backend
         run: |
-          cp -r ./dist api/
+          mkdir api/dist
+          cp -r dist/* api/dist/
 
       - name: Zip artifact for deployment
         run: zip release.zip ./api -r
@@ -64,5 +65,5 @@ jobs:
         with:
           app-name: "Project-Mariupol"
           slot-name: "Production"
-          package: .
+          package: ./api
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2A31A3F6D844D2B99EAF5E68A34DFA8 }}

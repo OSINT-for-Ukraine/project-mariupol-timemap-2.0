@@ -15,7 +15,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "mongodb": "^6.9.0"
+    "mongodb": "^6.9.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

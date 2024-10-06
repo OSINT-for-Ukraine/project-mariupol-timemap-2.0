@@ -1,6 +1,7 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -24,11 +25,6 @@ async function main() {
     const database = client.db("Project-Mariupol-Dataset");
     const eventsCollection = database.collection("Events");
     const millitaryUnitsCollection = database.collection("Millitary_Units");
-
-    // Handle React routing, return all requests to React app
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "dist", "index.html"));
-    });
 
     app.post("/events", async (req, res) => {
       const { intervalBegin, intervalEnd, filtersArr } = req.body;
@@ -117,6 +113,11 @@ async function main() {
       } catch (err) {
         res.status(500).json({ error: err.message });
       }
+    });
+
+    // Handle React routing, return all requests to React app
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "dist", "index.html"));
     });
 
     app.listen(port, () => {
