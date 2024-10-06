@@ -1,7 +1,6 @@
-import { ForwardedRef, forwardRef, MutableRefObject, DragEvent } from "react";
+import { ForwardedRef, forwardRef, MutableRefObject } from "react";
 import { Timeline } from "vis-timeline/esnext";
 import { options } from "Components/Time/utils";
-import { UnfoldMoreIcon } from "Components/Time/icons/UnfoldMoreIcon";
 
 export const TimelineHandle = forwardRef(function TimelineHandle(
   _,
@@ -9,35 +8,40 @@ export const TimelineHandle = forwardRef(function TimelineHandle(
 ) {
   const timelineRef = ref as MutableRefObject<Timeline | null>;
 
-  const handleDragEnd = (e: DragEvent<HTMLButtonElement>) => {
-    const newHeight = 200 - (e.clientY - 449);
+  const handleMouseMove = (event: Event) => {
+    event.preventDefault();
+    const mouseEvent = event as MouseEvent;
+
     const timeline = timelineRef.current;
-
     if (timeline) {
-      //@ts-expect-error options does exist on timelineRef.current
-
-      const isTimelineHidden = timeline.options.height === 0;
-
-      if (newHeight < 200) {
-        // if timeline is hidden and the user drags the pin up below 200px, display the timeline at the normal 200px height.
-        // if timeline is displayed and the user drags it below 200px, hide the timeline.
-        const newHeightValue = isTimelineHidden ? 200 : 0;
-        timeline.setOptions({ ...options, height: newHeightValue });
-      } else {
-        timeline.setOptions({ ...options, height: newHeight });
-      }
+      const viewHeight = document.body.clientHeight;
+      const newHeight = viewHeight - mouseEvent.clientY - 45;
+      timeline.setOptions({
+        ...options,
+        height: newHeight < 20 ? 0 : newHeight,
+      });
     }
   };
 
+  const handleMouseDown = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleMouseUp = () => {
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+  };
+
   return (
-    <button
-      draggable="true"
-      onDragEnd={(e) => handleDragEnd(e)}
+    <div
+      onMouseDown={handleMouseDown}
       className="timeline-handle"
       title="Drag the pin to resize the timeline"
       aria-label="resize timeline"
-    >
-      <UnfoldMoreIcon />
-    </button>
+    ></div>
   );
 });

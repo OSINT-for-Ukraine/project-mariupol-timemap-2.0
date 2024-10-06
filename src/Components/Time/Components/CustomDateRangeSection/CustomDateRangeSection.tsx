@@ -26,7 +26,7 @@ export const CustomDateRangeSection = ({ open }: { open: boolean }) => {
   }
 
   return (
-    <div className="position-fixed overlay-z-index date-range">
+    <div className="overlay-z-index date-range">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="start">Start date:</label>
