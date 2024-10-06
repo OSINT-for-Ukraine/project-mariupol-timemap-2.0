@@ -5,13 +5,15 @@ type UseMillitaryUnitsArgs = {
   date?: string;
 };
 
+const url = import.meta.env.PROD ? "" : "http://localhost:3000";
+
 export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
   const fetcher = async (dateArg: string) => {
     if (!isValidISODate(dateArg)) {
       throw new Error(`${dateArg} is not a valid ISO date.`);
     }
 
-    const response = await fetch(`http://localhost:3000/millitary/${date}`, {
+    const response = await fetch(`${url}/millitary/${date}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

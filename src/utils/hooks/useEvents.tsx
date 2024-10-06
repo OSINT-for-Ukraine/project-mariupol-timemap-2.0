@@ -7,6 +7,8 @@ type UseEventsArgs = {
   filters: string[];
 };
 
+const url = import.meta.env.PROD ? "/events" : "http://localhost:3000/events";
+
 export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
   const fetcher = async (
     intervalBegin: string,
@@ -21,7 +23,7 @@ export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
       throw new Error(`${intervalEnd} is not a valid ISO date.`);
     }
 
-    const response = await fetch("http://localhost:3000/events", {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

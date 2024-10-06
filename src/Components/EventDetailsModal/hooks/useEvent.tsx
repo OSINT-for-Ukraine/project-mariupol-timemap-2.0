@@ -4,9 +4,11 @@ type UseEventArgs = {
   id?: string;
 };
 
+const url = import.meta.env.PROD ? "" : "http://localhost:3000";
+
 export const useEvent = ({ id }: UseEventArgs) => {
   const fetcher = async (eventId: string) => {
-    const response = await fetch(`http://localhost:3000/event/${eventId}`, {
+    const response = await fetch(`${url}/event/${eventId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
