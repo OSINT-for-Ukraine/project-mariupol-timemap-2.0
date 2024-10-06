@@ -68,4 +68,3 @@ jobs:
           package: ./api
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2A31A3F6D844D2B99EAF5E68A34DFA8 }}
           clean: true
-          startup-command: "cd api && npm install && npm run start"
