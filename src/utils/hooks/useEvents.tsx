@@ -7,7 +7,9 @@ type UseEventsArgs = {
   filters: string[];
 };
 
-const url = import.meta.env.PROD ? "/events" : "http://localhost:3000/events";
+const url = import.meta.env.PROD
+  ? "/api/events"
+  : "http://localhost:3000/api/events";
 
 export const useEvents = ({ startDate, endDate, filters }: UseEventsArgs) => {
   const fetcher = async (

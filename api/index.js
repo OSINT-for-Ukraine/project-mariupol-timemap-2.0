@@ -6,7 +6,7 @@ const path = require("path");
 require("dotenv").config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -26,7 +26,7 @@ async function main() {
     const eventsCollection = database.collection("Events");
     const millitaryUnitsCollection = database.collection("Millitary_Units");
 
-    app.post("/events", async (req, res) => {
+    app.post("/api/events", async (req, res) => {
       const { intervalBegin, intervalEnd, filtersArr } = req.body;
 
       try {
@@ -40,7 +40,7 @@ async function main() {
               ...(filtersArr.length > 0 && {
                 filters: {
                   $elemMatch: {
-                    id: { $in: filters },
+                    id: { $in: filtersArr },
                   },
                 },
               }),
@@ -62,7 +62,7 @@ async function main() {
       }
     });
 
-    app.get("/event/:id", async (req, res) => {
+    app.get("/api/event/:id", async (req, res) => {
       const { id } = req.params;
 
       try {
@@ -94,7 +94,7 @@ async function main() {
       }
     });
 
-    app.get("/millitary/:date", async (req, res) => {
+    app.get("/api/millitary/:date", async (req, res) => {
       const { date } = req.params;
 
       try {
@@ -116,7 +116,7 @@ async function main() {
     });
 
     // Handle React routing, return all requests to React app
-    app.get("*", (req, res) => {
+    app.get("*", (_, res) => {
       res.sendFile(path.join(__dirname, "dist", "index.html"));
     });
 

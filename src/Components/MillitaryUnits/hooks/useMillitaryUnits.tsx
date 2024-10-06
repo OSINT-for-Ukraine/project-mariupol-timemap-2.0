@@ -13,7 +13,7 @@ export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
       throw new Error(`${dateArg} is not a valid ISO date.`);
     }
 
-    const response = await fetch(`${url}/millitary/${date}`, {
+    const response = await fetch(`${url}/api/millitary/${date}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
