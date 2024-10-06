@@ -15,7 +15,7 @@ export const EventDetailsModal = () => {
   return (
     <Modal open={!!eventId} position="right">
       <div className="modal-container event-details-modal">
-        <Header eventDate={event?.date?.toISOString()} />
+        <Header eventDate={event?.date} />
         {error ? (
           <div className="error-message-container">
             <p>{error.message}</p>
@@ -25,7 +25,7 @@ export const EventDetailsModal = () => {
         {event ? (
           <>
             <Content
-              date={event?.date?.toDateString() || ""}
+              date={event?.date?.split("T")[0] || ""}
               description={event?.description || ""}
               location={event?.location || "--"}
             />

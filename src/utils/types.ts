@@ -13,7 +13,7 @@ export type Event = {
   _id: string;
   id: string;
   description: string;
-  date: Date;
+  date: string;
   location: string;
   latitude: string;
   longitude: string;

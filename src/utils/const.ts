@@ -26,5 +26,3 @@ export const INITIAL_MAP_BOUNDARIES: TupleOfFourNumbers = [
 export const INITIAL_MAP_CENTER: TupleOfTwoNumbers = [48.3326259, 33.19951447];
 
 export const INITIAL_MAP_ZOOM = 6;
-
-export const APP_ID = import.meta.env.VITE_APP_ID;

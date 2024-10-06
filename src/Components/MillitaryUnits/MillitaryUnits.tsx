@@ -4,6 +4,7 @@ import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { useParams } from "react-router-dom";
 import { MillitaryUnitsButton } from "./Components/MillitaryUnitsButton";
 import { ErrorModal } from "Components/shared/ErrorModal";
+import { MillitaryUnit as MillitaryUnitType } from "./types";
 
 export const MillitaryUnits = () => {
   const { millitary_units_date } = useParams();
@@ -17,9 +18,11 @@ export const MillitaryUnits = () => {
       {error ? <ErrorModal message={error.message} /> : null}
       {isLoading ? <LoadingWheel /> : null}
       {millitaryUnits
-        ? millitaryUnits?.[0].units?.map((unit, index: number) => {
-            return <MillitaryUnit key={index} unit={unit} />;
-          })
+        ? millitaryUnits.units?.map(
+            (unit: MillitaryUnitType, index: number) => {
+              return <MillitaryUnit key={index} unit={unit} />;
+            }
+          )
         : null}
     </>
   );
