@@ -5,11 +5,14 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 
 app.use(express.json());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "dist")));
 
 const client = new MongoClient(process.env.COSMOSDB_CONNECTION_STRING);
 
@@ -21,6 +24,11 @@ async function main() {
     const database = client.db("Project-Mariupol-Dataset");
     const eventsCollection = database.collection("Events");
     const millitaryUnitsCollection = database.collection("Millitary_Units");
+
+    // Handle React routing, return all requests to React app
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "dist", "index.html"));
+    });
 
     app.post("/events", async (req, res) => {
       const { intervalBegin, intervalEnd, filtersArr } = req.body;
