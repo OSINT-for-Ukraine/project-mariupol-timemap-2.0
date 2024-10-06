@@ -59,6 +59,13 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      - name: Clean up existing files in Azure App Service
+        run: |
+          az webapp config appsettings set --name Project-Mariupol --resource-group Project-Mariupol --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+          az webapp deployment source config-zip --resource-group Project-Mariupol --name Project-Mariupol --src release.zip
+        env:
+          AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B2A31A3F6D844D2B99EAF5E68A34DFA8 }}
+
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
