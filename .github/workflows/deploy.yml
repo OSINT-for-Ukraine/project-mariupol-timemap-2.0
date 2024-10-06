@@ -27,6 +27,12 @@ jobs:
           npm install
 
       - name: Install frontend dependencies and build
+        env:
+          VITE_BELLINGCAT_MAPBOX_STREETS: ${{ env.VITE_BELLINGCAT_MAPBOX_STREETS }}
+          VITE_BELLINGCAT_MAPBOX_SATELLITE: ${{ env.VITE_BELLINGCAT_MAPBOX_SATELLITE }}
+          VITE_APP_ID: ${{ env.VITE_APP_ID }}
+          VITE_TEST: ${{ env.VITE_TEST }}
+
         run: |
           npm install
           npm run build
