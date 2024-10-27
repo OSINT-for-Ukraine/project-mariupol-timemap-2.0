@@ -3,7 +3,7 @@ name: Build and deploy to Azure App Service
 on:
   push:
     branches:
-      - set-up-node-api
+      - main
   workflow_dispatch:
 
 jobs:
