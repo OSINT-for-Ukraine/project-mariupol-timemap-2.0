@@ -1,4 +1,3 @@
-import { getIsoDate } from "utils/date-utils";
 import { TimelineOptions } from "vis-timeline/esnext";
 import { Event } from "utils/types";
 import { getClusterDisplayValue } from "utils/utils";
@@ -42,7 +41,7 @@ export const eventsToTimelineEvents = (events: Event[]) => {
     longitude: event.longitude,
     latitude: event.latitude,
     content: "",
-    start: getIsoDate(event?.date),
-    title: getIsoDate(event?.date),
+    start: event?.date,
+    title: event?.date,
   }));
 };
