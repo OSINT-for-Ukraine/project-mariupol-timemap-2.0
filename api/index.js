@@ -2,7 +2,7 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 const path = require("path");
-
+const updateDb = require("./scripts/cron-job");
 require("dotenv").config();
 
 const app = express();
@@ -15,7 +15,13 @@ app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "dist")));
 
-const client = new MongoClient(process.env.COSMOSDB_CONNECTION_STRING);
+const client = new MongoClient(
+  process.env.COSMOSDB_CONNECTION_STRING_READ_ONLY
+);
+
+cron.schedule("0 1 * * *", () => {
+  updateDb();
+});
 
 async function main() {
   try {
