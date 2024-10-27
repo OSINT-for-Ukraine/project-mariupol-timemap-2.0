@@ -1,6 +1,8 @@
 # Project Mariupol Timemap 2.0
 
-TimeMap is a tool for sourcing and mapping of potential international crimes committed in Ukraine, originally forked from Bellingcat's <a href="https://github.com/bellingcat/ukraine-timemap">Civilian Harm Ukraine-Timemap</a>, with special thanks to <a href="https://github.com/forensic-architecture">Forensic Architecture</a> for the original repository: <a href="https://github.com/forensic-architecture/timemap">forensic-architecture/timemap</a>.
+![screenshot of project mariupol](./public/Screenshot.png)
+
+TimeMap is a tool for sourcing and mapping of potential international crimes committed in Ukraine, using API of <a href="https://github.com/bellingcat/ukraine-timemap">Civilian Harm Ukraine-Timemap</a>, with special thanks to <a href="https://github.com/forensic-architecture">Forensic Architecture</a> for the original repository: <a href="https://github.com/forensic-architecture/timemap">forensic-architecture/timemap</a>.
 
 The original project is written using React Class based Components. The Timemap 2.0 refactors the original project using React Hooks.
 
