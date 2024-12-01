@@ -54,7 +54,7 @@ export const Time = ({ events }: { events: Event[] }) => {
       map.flyTo([latitude, longitude], 12);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [date]
   );
 
   useEffect(() => {
