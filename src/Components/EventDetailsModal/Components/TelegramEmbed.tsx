@@ -6,6 +6,9 @@ interface TelegramEmbedProps {
 
 const removePrefixOfTelegramUrl = (url: string) => {
   const prefix = "https://t.me";
+  if (!url) {
+    return "";
+  }
   if (url.startsWith(prefix)) {
     return url.slice(prefix.length);
   }
