@@ -6,7 +6,6 @@ const cron = require("node-cron");
 const updateDb = require("./scripts/cron-job");
 require("dotenv").config();
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
