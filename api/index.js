@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "dist")));
 
 const client = new MongoClient(
-  process.env.COSMOSDB_CONNECTION_STRING_READ_ONLY
+  process.env.COSMOSDB_CONNECTION_STRING_READ_ONLY,
 );
 
 cron.schedule("0 1 * * *", () => {
@@ -32,6 +32,9 @@ async function main() {
     const database = client.db("Project-Mariupol-Dataset");
     const eventsCollection = database.collection("Events");
     const millitaryUnitsCollection = database.collection("Millitary_Units");
+    const millitaryUnitsPerDayCollection = database.collection(
+      "Millitary_Units_Per_Day",
+    );
 
     app.post("/api/events", async (req, res) => {
       const { intervalBegin, intervalEnd, filtersArr } = req.body;
@@ -59,7 +62,7 @@ async function main() {
                 longitude: 1,
                 date: 1,
               },
-            }
+            },
           )
           .toArray();
 
@@ -85,7 +88,7 @@ async function main() {
                 location: 1,
                 graphic: 1,
               },
-            }
+            },
           )
           .toArray();
 
@@ -112,11 +115,32 @@ async function main() {
             },
             {
               projection: { _id: 0 },
-            }
+            },
           )
           .toArray();
 
         res.status(200).json(millitaryUnits);
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+    });
+
+    app.get("/api/millitary-per-day/:date", async (req, res) => {
+      const { date } = req.params;
+
+      try {
+        const millitaryUnitsPerDay = await millitaryUnitsPerDayCollection
+          .find(
+            {
+              date: new Date(date),
+            },
+            {
+              projection: { _id: 0 },
+            },
+          )
+          .toArray();
+
+        res.status(200).json(millitaryUnitsPerDay);
       } catch (err) {
         res.status(500).json({ error: err.message });
       }
