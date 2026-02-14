@@ -12,4 +12,5 @@ export type MillitaryUnit = {
     | "storm-z"
     | "storm-v"
     | "division";
+  icon?: "enemy" | "headquarters";
 };

@@ -10,7 +10,7 @@ export const MillitaryUnit = ({ unit }: MilitaryUnitProps) => {
   return (
     <Marker
       position={[unit?.coordinates[1], unit?.coordinates[0]]}
-      icon={getMillitaryUnitIcon()}
+      icon={getMillitaryUnitIcon(unit.icon)}
     >
       <Popup>{unit?.name}</Popup>
     </Marker>
