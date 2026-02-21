@@ -17,7 +17,7 @@ export const MillitaryUnitsButton = () => {
     } else {
       const millitaryUnitsPath =
         date && date.split("__").length > 1
-          ? `/date/${date}/millitary_units/${getFirstDayOfMonth(date.split("__")[0])}`
+          ? `/date/${date}/millitary_units/${getFirstDayOfMonth(date.split("__")[1])}`
           : `/date/${date}/millitary_units/${date}`;
       navigate({
         pathname: millitaryUnitsPath,
