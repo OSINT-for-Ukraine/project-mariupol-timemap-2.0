@@ -32,9 +32,7 @@ async function main() {
     const database = client.db("Project-Mariupol-Dataset");
     const eventsCollection = database.collection("Events");
     const millitaryUnitsCollection = database.collection("Millitary_Units");
-    const millitaryUnitsPerDayCollection = database.collection(
-      "Millitary_Units_Per_Day",
-    );
+    const territoriesCollection = database.collection("Territories");
 
     app.post("/api/events", async (req, res) => {
       const { intervalBegin, intervalEnd, filtersArr } = req.body;
@@ -125,11 +123,11 @@ async function main() {
       }
     });
 
-    app.get("/api/millitary-per-day/:date", async (req, res) => {
+    app.get("/api/territories/:date", async (req, res) => {
       const { date } = req.params;
 
       try {
-        const millitaryUnitsPerDay = await millitaryUnitsPerDayCollection
+        const territories = await territoriesCollection
           .find(
             {
               date: new Date(date),
@@ -140,7 +138,7 @@ async function main() {
           )
           .toArray();
 
-        res.status(200).json(millitaryUnitsPerDay);
+        res.status(200).json(territories);
       } catch (err) {
         res.status(500).json({ error: err.message });
       }

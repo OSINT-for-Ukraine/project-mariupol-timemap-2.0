@@ -15,12 +15,8 @@ export const MillitaryUnitsButton = () => {
         search: `?${searchParams.toString()}`,
       });
     } else {
-      const millitaryUnitsPath =
-        date && date.split("__").length > 1
-          ? `/date/${date}/millitary_units/${getFirstDayOfMonth(date.split("__")[1])}`
-          : `/date/${date}/millitary_units/${date}`;
       navigate({
-        pathname: millitaryUnitsPath,
+        pathname: `/date/${date}/millitary_units/${getFirstDayOfMonth(date?.split("__")[0])}`,
         search: `?${searchParams.toString()}`,
       });
     }
