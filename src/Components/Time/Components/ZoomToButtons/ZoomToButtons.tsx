@@ -8,9 +8,9 @@ import {
 
 const zoomLevels = [
   { label: "Zoom to 1 month", months: 1, id: 1 },
-  { label: "Zoom to 6 months", months: 6, id: 2 },
-  { label: "Zoom to 1 year", months: 12, id: 3 },
-  { label: "Zoom to 2 years", months: 24, id: 4 },
+  { label: "Zoom to 1 year", months: 12, id: 2 },
+  { label: "Zoom to 2 years", months: 24, id: 3 },
+  { label: "Zoom to 5 years", months: 60, id: 4 },
 ];
 
 type ZoomToButtonsProps = {

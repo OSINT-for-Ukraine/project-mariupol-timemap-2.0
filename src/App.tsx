@@ -19,6 +19,7 @@ import { LoadingWheel } from "Components/shared/LoadingWheel";
 import { Time } from "Components/Time";
 import { EventDetailsModal } from "Components/EventDetailsModal";
 import { ErrorModal } from "Components/shared/ErrorModal";
+import { Polygon } from "Components/Polygon/Polygon";
 
 function App() {
   const { isSatelliteMode } = useMapLayerProvider();
@@ -56,6 +57,7 @@ function App() {
         <>
           <Space events={events} />
           <Time events={events} />
+          <Polygon />
         </>
       )}
     </MapContainer>
