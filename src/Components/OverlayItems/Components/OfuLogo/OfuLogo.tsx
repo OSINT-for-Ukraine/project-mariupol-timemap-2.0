@@ -4,7 +4,7 @@ import ofulogo from "assets/ofu-logo.jpg";
 export const OfuLogo = () => {
   return (
     <a
-      href="https://www.osintforukraine.com/"
+      href="https://osintforukraine.com/"
       target="_blank"
       aria-label="osintforukraine.com"
     >
