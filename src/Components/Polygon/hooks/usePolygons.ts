@@ -21,7 +21,6 @@ const url = import.meta.env.PROD ? "" : "http://localhost:3000";
 
 export const usePolygons = ({ date }: UsePolygonsArgs) => {
   const fetcher = async (dateArg: string) => {
-    console.log(dateArg);
     if (!isValidISODate(dateArg)) {
       throw new Error(`${dateArg} is not a valid ISO date.`);
     }

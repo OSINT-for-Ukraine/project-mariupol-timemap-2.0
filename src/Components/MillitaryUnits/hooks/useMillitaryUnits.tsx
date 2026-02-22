@@ -9,7 +9,6 @@ const url = import.meta.env.PROD ? "" : "http://localhost:3000";
 
 export const useMillitaryUnits = ({ date }: UseMillitaryUnitsArgs) => {
   const fetcher = async (dateArg: string) => {
-    console.log({ dateArgMillitary: dateArg });
     if (!isValidISODate(dateArg)) {
       throw new Error(`${dateArg} is not a valid ISO date.`);
     }
